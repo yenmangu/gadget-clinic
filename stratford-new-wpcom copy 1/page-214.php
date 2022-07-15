@@ -17,21 +17,21 @@ get_header();
 
     <?php
 
-			if (isset($_GET['deviceId'])) 
-			{
-				$deviceId = $_GET ['deviceId'];
-			}
-			else
-			{
-				$deviceId = "";
-			}
-			include 'sql_connect.php'; //db connection
-			$connection = new PDO ($dsn, $username, $password);
-			$connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			echo "connection successful";
-			$sql = "SELECT * 
-				FROM newdevices
-				WHERE deviceId = $deviceId"; 
+			// if (isset($_GET['deviceId'])) 
+			// {
+			// 	$deviceId = $_GET ['deviceId'];
+			// }
+			// else
+			// {
+			// 	$deviceId = "";
+			// }
+			// include 'sql_connect.php'; //db connection
+			// $connection = new PDO ($dsn, $username, $password);
+			// $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			// echo "connection successful";
+			// $sql = "SELECT * 
+			// 	FROM newdevices
+			// 	WHERE deviceId = $deviceId"; 
 
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -48,9 +48,9 @@ get_header();
 			?>
 
     <?php
-			if (isset ($_GET))
-      require "page-206.php";
-			$id = $_GET["id"];
+			// if (isset ($_GET))
+     		// require "page-206.php";
+			// $id = $_GET["id"];
       
     ?>
   </main><!-- #main -->
