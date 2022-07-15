@@ -67,19 +67,28 @@ get_header();
 	$result -> bindParam(':id', $id);
 	$result -> execute();
 
+	$row = $result -> fetch()
+
+	// while ($row = $result -> fetch()) {
+	// 	echo $row['deviceName']. "<br>";
+	// }
 
 	
 
 	?>
 	 
-	<div style="display:flex; align-items:center; border: 2px solid red;">
+	<div style="display:flex; align-items:center; padding: 10 50px; border: 2px solid red; width:auto">
+		<h4 style="align-items: center; text-align: center;">
+			<?=$row['deviceName']?>
+		</h4>
+	</div>
+	<div>
 		<p>
-			<?php
-				while ($row = $result -> fetch()) {
-					echo $row['deviceName']. "<br>";
-				}
-			?>
+			Choose Repair Type
 		</p>
+	</div>
+	<div>
+
 	</div>
 
   </main><!-- #main -->
