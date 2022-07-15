@@ -1,8 +1,7 @@
-
-
 <?php
 /**
  * The template for displaying all single posts
+ * Template Name: SQL
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
@@ -62,7 +61,7 @@ get_header();
           </tr>
         </thead>
         <tbody style="margin-left:100px">
-      <?php 
+          <?php 
 
           foreach ($devices AS $device): 
 					$newUrl = "http://18.168.90.222/device-repair-service/device?id=$device[deviceId]";
