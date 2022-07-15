@@ -34,13 +34,7 @@ get_header();
 			?>
 
     <?php
-      require_once "sql_connect.php";
-      $dsn = "mysql:host=$host;dbname=$dbName";
-      //specify if local or production
-      $liveUrl = "http://.....$device[slug]";
-      $newUrl = "http://18.168.90.222$device[slug]";
-      $localUrl="http://localhost$device[slug]";
-
+      require "sql_connect.php";
       $devices = "";
       try {
         $connection = new PDO($dsn, $username, $password);
@@ -52,7 +46,8 @@ get_header();
       } catch (PDOException $error){
         echo $error -> getMessage();
 
-      }
+      }	
+      
 		?>
 
     <body>
@@ -66,16 +61,16 @@ get_header();
             </th>
           </tr>
         </thead>
-        <tbody style=>
+        <tbody style="margin-left:100px">
       <?php 
 
           foreach ($devices AS $device): 
-					//$newUrl = "http://18.168.90.222$device[slug]";
-					$newUrl = "/page-device-repair-service.php?id=$device[deviceId]";
+					$newUrl = "http://18.168.90.222/device-repair-service/device?id=$device[deviceId]";
+					//$newUrl = "device-repair-service.php?id=$device[deviceId]";
 					?>
           <tr style=>
             <td style=>
-              <a style=href="<?=$newUrl?>">
+              <a href="<?=$newUrl?>">
                 <?php echo "$device[deviceName]" ?>
               </a>
 

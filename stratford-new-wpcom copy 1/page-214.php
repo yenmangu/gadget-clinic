@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
+ * Template Name: page-214
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
@@ -12,49 +12,76 @@
 get_header();
 ?>
 
+
+
 <section id="primary" class="content-area">
   <main id="main" class="site-main">
 
     <?php
 
-		include 'sql_connect.php';
+		
 
-			// if (isset($_GET['deviceId'])) 
-			// {
-			// 	$deviceId = $_GET ['deviceId'];
-			// }
-			// else
-			// {
-			// 	$deviceId = "";
-			// }
-			// include 'sql_connect.php'; //db connection
-			// $connection = new PDO ($dsn, $username, $password);
-			// $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			// echo "connection successful";
-			// $sql = "SELECT * 
-			// 	FROM newdevices
-			// 	WHERE deviceId = $deviceId"; 
+		/* Start the Loop */
+		while ( have_posts() ) :
+			the_post();
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			get_template_part( 'template-parts/content/content', 'page' );
 
-				get_template_part( 'template-parts/content/content', 'page' );
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) {
+				comments_template();
+			}
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) {
-					comments_template();
+		endwhile; // End of the loop.
+		?>
+
+	<?php
+	
+
+	if (isset($_GET['id'])) 
+	{
+		$id = $_GET ['id'];
+	}
+	else
+	{
+		$id = "";
+	}
+	
+	//$url = "http://18.168.90.222/device-repair-service/device?id=$id";
+	
+	require 'sql_connect.php';
+
+	try {
+		$connection = new PDO($dsn, $username, $password);
+		$connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		//echo "connection succesful";
+		} catch (PDOException $error){
+		echo $error -> getMessage();
+		}
+
+	//prevent SQL injection
+	$sql = "SELECT * FROM newdevices WHERE deviceId =:id";
+
+	$result = $connection -> prepare($sql);
+
+	$result -> bindParam(':id', $id);
+	$result -> execute();
+
+
+	
+
+	?>
+	 
+	<div style="display:flex; align-items:center; border: 2px solid red;">
+		<p>
+			<?php
+				while ($row = $result -> fetch()) {
+					echo $row['deviceName']. "<br>";
 				}
-
-			endwhile; // End of the loop.
 			?>
+		</p>
+	</div>
 
-    <?php
-			// if (isset ($_GET))
-     		// require "page-206.php";
-			// $id = $_GET["id"];
-      
-    ?>
   </main><!-- #main -->
 </section><!-- #primary -->
 
