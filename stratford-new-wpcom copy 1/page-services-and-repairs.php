@@ -1,3 +1,5 @@
+
+
 <?php
 /**
  * The template for displaying all single posts
@@ -32,7 +34,25 @@ get_header();
 			?>
 
     <?php
-		include 'sql_connect.php';
+      require_once "sql_connect.php";
+      $dsn = "mysql:host=$host;dbname=$dbName";
+      //specify if local or production
+      $liveUrl = "http://.....$device[slug]";
+      $newUrl = "http://18.168.90.222$device[slug]";
+      $localUrl="http://localhost$device[slug]";
+
+      $devices = "";
+      try {
+        $connection = new PDO($dsn, $username, $password);
+        $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "connection succesful";
+        $sql = "SELECT * FROM newdevices";
+        $devices = $connection -> query ($sql);
+        
+      } catch (PDOException $error){
+        echo $error -> getMessage();
+
+      }
 		?>
 
     <body>
@@ -47,9 +67,11 @@ get_header();
           </tr>
         </thead>
         <tbody style=>
-          <?php foreach ($devices AS $device): 
+      <?php 
+
+          foreach ($devices AS $device): 
 					//$newUrl = "http://18.168.90.222$device[slug]";
-					$newUrl = "page-device-repair-service.php?id=$device[slug]";
+					$newUrl = "/page-device-repair-service.php?id=$device[deviceId]";
 					?>
           <tr style=>
             <td style=>

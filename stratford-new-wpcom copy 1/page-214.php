@@ -17,6 +17,8 @@ get_header();
 
     <?php
 
+		include 'sql_connect.php';
+
 			// if (isset($_GET['deviceId'])) 
 			// {
 			// 	$deviceId = $_GET ['deviceId'];
