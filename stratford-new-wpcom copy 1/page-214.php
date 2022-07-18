@@ -60,11 +60,11 @@ get_header();
 		}
 
 	//prevent SQL injection
-	$sql = "SELECT * FROM newdevices WHERE deviceId =:id";
+	$sql = "SELECT * FROM newdevices WHERE deviceId =?";
 
 	$result = $connection -> prepare($sql);
 
-	$result -> bindParam(':id', $id);
+	$result -> bindParam(1, $id);
 	$result -> execute();
 
 	$row = $result -> fetch()
@@ -77,18 +77,26 @@ get_header();
 
 	?>
 	 
-	<div style="display:flex; align-items:center; padding: 10 50px; border: 2px solid red; width:auto">
-		<h4 style="align-items: center; text-align: center;">
-			<?=$row['deviceName']?>
+	<div class="deviceName" style="border: 2px solid red; ">
+		<h4 class="deviceHeading">
+			Services and Repairs for <br>
+			
 		</h4>
+		<h3 class ="deviceSelected"><?=$row['deviceName']?></h3>
 	</div>
-	<div>
+	<div class="repairOption">
 		<p>
 			Choose Repair Type
 		</p>
-	</div>
-	<div>
+		<div class="screenRepair">
 
+		</div>
+		<div class="waterDamage">
+
+		</div>
+		<div class="batteryReplacement">
+			
+		</div>
 	</div>
 
   </main><!-- #main -->

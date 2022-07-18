@@ -64,7 +64,7 @@ get_header();
           <?php 
 
           foreach ($devices AS $device): 
-					$newUrl = "http://18.168.90.222/device-repair-service/device?id=$device[deviceId]";
+					$newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
 					//$newUrl = "device-repair-service.php?id=$device[deviceId]";
 					?>
           <tr style=>
