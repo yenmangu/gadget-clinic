@@ -35,18 +35,25 @@ get_header();
     <?php
       require "sql_connect.php";
       $devices = "";
+      $deviceType = "samsung";
       try {
         $connection = new PDO($dsn, $username, $password);
         $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "connection succesful";
-        $sql = "SELECT * FROM newdevices";
-        $devices = $connection -> query ($sql);
-        
-      } catch (PDOException $error){
+        //echo "connection succesful";
+        } catch (PDOException $error){
         echo $error -> getMessage();
-
-      }	
+        }
       
+        //prevent SQL injection
+        $sql = "SELECT * FROM newdevices WHERE deviceType =?";
+      
+        $result = $connection -> prepare($sql);
+      
+        $result -> bindParam(1, $deviceType);
+        $result -> execute();
+      
+        $row = $result -> fetch()
+        
 		?>
 
     <body>
@@ -56,26 +63,27 @@ get_header();
         <thead>
           <tr>
             <th style=>
-              Choose Device
+              Samsung
             </th>
           </tr>
         </thead>
         <tbody style="margin-left:100px">
           <?php 
 
-          foreach ($devices AS $device): 
+          while ($row = $result -> fetch() ){
+
+          }
 					$newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
 					//$newUrl = "device-repair-service.php?id=$device[deviceId]";
 					?>
           <tr style=>
             <td style=>
               <a href="<?=$newUrl?>">
-                <?php echo "$device[deviceName]" ?>
+                <?php echo "$row[deviceName]" ?>
               </a>
 
             </td>
           </tr>
-          <?php endforeach; ?>
         </tbody>
       </table>
     </body>
