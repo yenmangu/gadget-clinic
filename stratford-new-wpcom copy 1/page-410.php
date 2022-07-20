@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="repairs-styles.css">
+</head>
 <?php
 /**
  * The template for displaying all single posts
@@ -63,10 +66,40 @@ get_header();
 
             $devices = $result -> fetch();
 
-                        ?>
+            ?>
+            <div class="main-container">
+                    <h1 class="main-title">Gadget Clinic</h1>
+                    <h2 class="main-repair">Repair or Replace the Screen on your </h2> <br>
+                    <br>
+                    <h3><span class="chosen-device"><?=$devices['deviceName']?></span></h3>
+                    <div class="info-container">
+                        <p class="repair-info">Some text about screen replacement</p>
+                        <p class="repair-info">Text about the price of screen replacement for the chosen model</p>
+                    </div>
+                    <div class="book-repair">
+                        <h4>How to book</h4>
+                        <p class="booking-info">Text about booking</p>
+                        <p>visit us at the shop</p>
+                        <p>call this number - xxxxxxx</p>
+                        <p>fill out the form below to get started for device collection</p>
+                        <form action="post">
+                            <label for="Name">Name</label>
+                            <input type="text" class="name" name="name">
+                            <label for="Email">Email</label>
+                            <input type="text" class="email" name="email">
+                            <p>Repair Type:</p>
+                            <p>Screen Replacement</p>
+                            <p>Device</p>
+                            <p class="chosen-device form-chosen"><?=$devices['deviceName']?></p>
+                            <label for="extra-info">Please provide us with any extra information about the device</label>
+                            <textarea name="extra-info" id="extra-info" cols="30" rows="10"></textarea>
+                            <input type="submit" name="submit" id="submit" class="submit-button button">
+                            <input type="reset" name="reset" id="reset" class="reset-button button">
+                        </form>
+                    </div>
+                </div>
+        </main><!-- #main -->
+    </section><!-- #primary -->
 
-                    </main><!-- #main -->
-                </section><!-- #primary -->
-
-            <?php
+<?php
 get_footer();
