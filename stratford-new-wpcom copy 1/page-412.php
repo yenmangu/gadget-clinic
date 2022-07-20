@@ -1,5 +1,46 @@
 <head>
     <link rel="stylesheet" href="repairs-styles.css">
+    <style>
+        .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #34eb89;
+    width: 100%;
+    height: auto;
+    border: 2px solid #da9df2;
+    padding: 20 40px;
+}
+
+.main-title {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.info-container {
+    border: 2px solid #da9df2;
+    align-items: flex-start;
+    padding: 20 10px;
+}
+
+.chosen-device {
+    color: blue;
+}
+
+form {
+    border: 2px solid #da9df2;
+    padding: 20px;
+}
+
+text-area {
+    margin: 10 0px;
+    padding-bottom: 20px;
+}
+
+.reset-button .submit-button {
+    margin-top: 20px;
+}
+    </style>
 </head>
 
 <?php
