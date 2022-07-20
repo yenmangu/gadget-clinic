@@ -62,11 +62,11 @@ get_header();
             $result -> execute();
 
             $devices = $result -> fetch();
-
+                echo $devices['deviceName'];
             ?>
-
-                    </main><!-- #main -->
-                </section><!-- #primary -->
+        
+        </main><!-- #main -->
+    </section><!-- #primary -->
 
             <?php
 get_footer();
