@@ -39,7 +39,7 @@ get_header();
         $connection = new PDO($dsn, $username, $password);
         $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "connection succesful";
-        $sql = "SELECT * FROM newdevices WHERE deviceType = 'samsung' ";
+        $sql = "SELECT * FROM newdevices WHERE deviceType = 'appleIphone'";
         $devices = $connection -> query ($sql);
         
       } catch (PDOException $error){
@@ -50,8 +50,8 @@ get_header();
 		?>
 
     <body>
-    <h3 style=>Device List</h3>
-    <h4>Choose Your Samsung</h4>
+      <h3 style=>Device List</h3>
+      <h4>Choose Your iPhone</h4>
 
       <table style=>
         <thead>

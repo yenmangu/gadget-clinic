@@ -89,13 +89,15 @@ get_header();
 			Choose Repair Type
 		</p>
 		<div class="screenRepair">
+			<h3>Screen Repair/ Replacement</h3>
 
 		</div>
 		<div class="waterDamage">
+			<h3>Get a water damaged device quote</h3>
 
 		</div>
 		<div class="batteryReplacement">
-			
+			<h3>Battery Replacement</h3>
 		</div>
 	</div>
 
