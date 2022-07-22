@@ -44,6 +44,86 @@
 
 get_header();
 ?>
+<?php
+		
+
+    if (isset($_GET['id'])) 
+    {
+      $id = $_GET ['id'];
+    }
+    else
+    {
+      $id = "";
+    }
+    
+    //$url = "http://18.168.90.222/device-repair-service/device?id=$id";
+    
+    require 'sql_connect.php';
+
+    try {
+      $connection = new PDO($dsn, $username, $password);
+      $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      //echo "connection succesful";
+      } catch (PDOException $error){
+      echo $error -> getMessage();
+      }
+
+    //prevent SQL injection
+    $sql = "SELECT * FROM newdevices WHERE deviceId =?";
+
+    $result = $connection -> prepare($sql);
+
+    $result -> bindParam(1, $id);
+    $result -> execute();
+
+    $devices = $result -> fetch();
+
+    // while ($row = $result -> fetch()) {
+    // 	echo $row['deviceName']. "<br>";
+    // }
+    
+    // foreach ($devices AS $device):
+    // 	$waterUrl = "http://18.168.90.222/home/brand-new-clinic/gadget-repair/water-damage?id=$device[deviceId]";
+    // 	$screenUrl = "http://18.168.90.222/home/brand-new-clinic/gadget-repair/screen-repair?id=$device[deviceId]";
+    // 	$batteryUrl = "http://18.168.90.222/home/brand-new-clinic/gadget-repair/battery-replacement?id=$device[deviceId]";
+
+  ?>
+
+<div class="deviceName" ">
+    <h4 class=" deviceHeading">
+  Services and Repairs for <br>
+
+  </h4>
+  <h3 class="deviceSelected"><?=$devices['deviceName']?></h3>
+  <div class="repairOption choose-repair">
+    <p>
+      Choose Repair Type
+      </br> </br>
+    </p>
+    <div class="screenRepair repairOption">
+      <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-broken-phone-64.png" alt="broken-phone-image">
+
+      <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/screen-replacement?id=<?=$devices['deviceId']?>"
+        class="button">
+        Screen Replacement
+      </a>
+    </div>
+    <div class="waterDamage repairOption">
+      <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-water-64.png" alt="water-droplet">
+      <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/water-damage/?id=<?=$devices['deviceId']?>"
+        class="button">
+        Water Damage
+      </a>
+    </div>
+    <div class="batteryReplacement repairOption">
+      <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-empty-battery-64.png" alt="sad-battery">
+      <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/battery-replacement/?id=<?=$devices['deviceId']?>"
+        class="button">
+        Battery Replacement
+      </a>
+    </div>
+  </div>
+</div>
 
 
 <section id="primary" class="content-area">
@@ -67,86 +147,7 @@ get_header();
 			endwhile; // End of the loop.
 		?>
 
-    <?php
-		
 
-			if (isset($_GET['id'])) 
-			{
-				$id = $_GET ['id'];
-			}
-			else
-			{
-				$id = "";
-			}
-			
-			//$url = "http://18.168.90.222/device-repair-service/device?id=$id";
-			
-			require 'sql_connect.php';
-
-			try {
-				$connection = new PDO($dsn, $username, $password);
-				$connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				//echo "connection succesful";
-				} catch (PDOException $error){
-				echo $error -> getMessage();
-				}
-
-			//prevent SQL injection
-			$sql = "SELECT * FROM newdevices WHERE deviceId =?";
-
-			$result = $connection -> prepare($sql);
-
-			$result -> bindParam(1, $id);
-			$result -> execute();
-
-			$devices = $result -> fetch();
-
-			// while ($row = $result -> fetch()) {
-			// 	echo $row['deviceName']. "<br>";
-			// }
-			
-			// foreach ($devices AS $device):
-			// 	$waterUrl = "http://18.168.90.222/home/brand-new-clinic/gadget-repair/water-damage?id=$device[deviceId]";
-			// 	$screenUrl = "http://18.168.90.222/home/brand-new-clinic/gadget-repair/screen-repair?id=$device[deviceId]";
-			// 	$batteryUrl = "http://18.168.90.222/home/brand-new-clinic/gadget-repair/battery-replacement?id=$device[deviceId]";
-
-		?>
-
-    <div class="deviceName" ">
-			<h4 class=" deviceHeading">
-      Services and Repairs for <br>
-
-      </h4>
-      <h3 class="deviceSelected"><?=$devices['deviceName']?></h3>
-      <div class="repairOption choose-repair">
-        <p>
-          Choose Repair Type
-          </br> </br>
-        </p>
-        <div class="screenRepair repairOption">
-          <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-broken-phone-64.png" alt="broken-phone-image">
-
-          <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/screen-replacement?id=<?=$devices['deviceId']?>"
-            class="button">
-            Screen Replacement
-          </a>
-        </div>
-        <div class="waterDamage repairOption">
-          <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-water-64.png" alt="water-droplet">
-          <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/water-damage/?id=<?=$devices['deviceId']?>"
-            class="button">
-            Water Damage
-          </a>
-        </div>
-        <div class="batteryReplacement repairOption">
-          <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-empty-battery-64.png" alt="sad-battery">
-          <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/battery-replacement/?id=<?=$devices['deviceId']?>"
-            class="button">
-            Battery Replacement
-          </a>
-        </div>
-      </div>
-    </div>
 
 
   </main><!-- #main -->

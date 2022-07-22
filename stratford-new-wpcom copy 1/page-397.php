@@ -19,7 +19,7 @@ get_header();
       try {
         $connection = new PDO($dsn, $username, $password);
         $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "connection succesful";
+        //echo "connection succesful";
         $sql = "SELECT * FROM newdevices WHERE deviceType = 'appleIphone'";
         $devices = $connection -> query ($sql);
         

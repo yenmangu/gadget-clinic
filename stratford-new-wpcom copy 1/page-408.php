@@ -56,26 +56,7 @@ get_header();
   }
   </style>
 </head>
-
-<section id="primary" class="content-area">
-  <main id="main" class="site-main">
-
-    <?php
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				get_template_part( 'template-parts/content/content', 'page' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) {
-					comments_template();
-				}
-
-			endwhile; // End of the loop.
-			?>
-    <?php
+<?php
 
             if (isset($_GET['id'])) 
             {
@@ -111,37 +92,56 @@ get_header();
 
             ?>
 
-    <div class="main-container">
-      <h1 class="main-title">Gadget Clinic</h1>
-      <h2 class="main-repair">Repair a water-damaged device </h2> <br>
-      <br>
-      <h3><span class="chosen-device"><?=$devices['deviceName']?></span></h3>
-      <div class="info-container">
-        <p class="repair-info">Some text about water-damage</p>
-        <p class="repair-info">Text about the price of water-damage for the chosen model</p>
-      </div>
-      <div class="book-repair">
-        <h4>How to book</h4>
-        <p class="booking-info">Text about booking</p>
-        <p>visit us at the shop</p>
-        <p>call this number - xxxxxxx</p>
-        <p>fill out the form below to get started for device collection</p>
-        <form action="post">
-          <label for="Name">Name</label>
-          <input type="text" class="name" name="name">
-          <label for="Email">Email</label>
-          <input type="text" class="email" name="email">
-          <p>Repair Type:</p>
-          <p>Water-Damage</p>
-          <p>Device</p>
-          <p class="chosen-device form-chosen"><?=$devices['deviceName']?></p>
-          <label for="extra-info">Please provide us with any extra information about the device</label>
-          <textarea name="extra-info" id="extra-info" cols="30" rows="10"></textarea>
-          <input type="submit" name="submit" id="submit" class="submit-button button">
-          <input type="reset" name="reset" id="reset" class="reset-button button">
-        </form>
-      </div>
-    </div>
+<div class="main-container">
+  <h1 class="main-title">Gadget Clinic</h1>
+  <h2 class="main-repair">Repair a water-damaged device </h2> <br>
+  <br>
+  <h3><span class="chosen-device"><?=$devices['deviceName']?></span></h3>
+  <div class="info-container">
+    <p class="repair-info">Some text about water-damage</p>
+    <p class="repair-info">Text about the price of water-damage for the chosen model</p>
+  </div>
+  <div class="book-repair">
+    <h4>How to book</h4>
+    <p class="booking-info">Text about booking</p>
+    <p>visit us at the shop</p>
+    <p>call this number - xxxxxxx</p>
+    <p>fill out the form below to get started for device collection</p>
+    <form action="post">
+      <label for="Name">Name</label>
+      <input type="text" class="name" name="name">
+      <label for="Email">Email</label>
+      <input type="text" class="email" name="email">
+      <p>Repair Type:</p>
+      <p>Water-Damage</p>
+      <p>Device</p>
+      <p class="chosen-device form-chosen"><?=$devices['deviceName']?></p>
+      <label for="extra-info">Please provide us with any extra information about the device</label>
+      <textarea name="extra-info" id="extra-info" cols="30" rows="10"></textarea>
+      <input type="submit" name="submit" id="submit" class="submit-button button">
+      <input type="reset" name="reset" id="reset" class="reset-button button">
+    </form>
+  </div>
+</div>
+<section id="primary" class="content-area">
+  <main id="main" class="site-main">
+
+    <?php
+
+			/* Start the Loop */
+			while ( have_posts() ) :
+				the_post();
+
+				get_template_part( 'template-parts/content/content', 'page' );
+
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
+
+			endwhile; // End of the loop.
+			?>
+
   </main><!-- #main -->
 </section><!-- #primary -->
 
