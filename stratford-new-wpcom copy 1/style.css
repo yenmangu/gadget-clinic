@@ -4193,7 +4193,7 @@ p:not(.site-title) a:hover {
  */
 #masthead {
 	border-bottom: 1px solid var(--wp--preset--color--background-high-contrast);
-	background: var(--wp--preset--color--background);
+	background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);;
 	-webkit-transition: all .25s ease-in-out;
 	-moz-transition: all .25s ease-in-out;
 	transition: all .25s ease-in-out;
@@ -4204,7 +4204,7 @@ p:not(.site-title) a:hover {
 	display: flex;
 	flex-wrap: wrap;
 	position: relative;
-	z-index: 1;
+	z-index: 999;
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
