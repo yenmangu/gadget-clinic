@@ -1,0 +1,176 @@
+#masthead {
+	top: 0;
+}
+
+.choose-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;	
+	background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+	
+}
+
+.device-table {
+	table-layout: fixed;
+	max-width: 700px;
+}
+
+.heading-container {
+	position: fixed;
+	width: 100%;
+	background: white;
+	margin-top: -4px;
+}
+
+tr.device-row {
+	color: white;
+}
+
+td.device-row-data {
+	color: white;
+}
+
+a.device-row-link {
+	color: white;	
+}
+
+.page .entry-title {
+display: none;
+}
+
+.option-wrapper {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 100px;
+}
+
+.repair-wrapper {
+	display: flex;
+	flex-direction: row ;
+	flex: 0 1 auto;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 20px;
+}
+
+.repair-option {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
+.repair-copy-wrapper {
+	justify-content: center;
+	align-content: center;
+	justify-content: center;
+}
+.repair-copy {
+  padding-top: 20px;
+	padding-left: 20px;
+}
+/* responsiveness */
+
+@media only screen and (max-width: 425px) {
+	.repair-wrapper {
+		flex-direction: column;
+	}
+}
+
+@media only screen and (max-width: 559px) {
+	#masthead {
+		position: fixed;
+	}
+	.choose-container {
+		
+	}
+
+	.table-container {
+		padding: none;
+	}
+	
+}
+@media only screen and (max-width: 621px) {
+	#masthead {
+		position: fixed;
+	}
+	
+	.choose-container {
+		padding-top: 20px
+		margin-top: 0px;
+	}
+	.heading-container {
+		height: 30px;
+		padding: 8 0px;
+		margin-top: -10px;
+		top: 80px;
+	}
+	h4.chose-h4 {
+		font-size: 14px
+	}
+	.device-table {
+		margin-top: 10px
+		
+	}
+	thead.column-heads {
+		margin-top: 10px;
+	}
+	
+	.table-container {
+		padding-left: 20px;
+	}
+	
+}
+
+
+@media only screen and (min-width: 622px) {
+	.choose-container {
+		position: relative;
+		top: -14px;
+	}
+	.heading-container {
+		padding-top: 20px;
+		padding-bottom: 60px;
+		padding-left: 40px;
+		height: 50px;
+		justify-content: center;
+	}
+	h4.choose-h4 {
+		position: relative;
+		top: 0px;
+		padding-bottom: 20px;
+	}
+	.table-container {
+		padding-left: 20px;
+		padding-top: 100px;
+	}
+	
+}
+
+@media only screen and (min-width: 839px) and (max-width:1023px) {
+	.choose-container {
+		position: relative;
+		top: -30px;
+	}
+	
+	.heading-container {
+		height: 50px;
+		
+	}
+	.device-table {
+		width: 500px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.chose-container {
+		position: relative;
+		top: -40px;
+	}
+	.heading-container {
+		height: 50px;
+	}
+	.device-table {
+		width: 700px;
+	}
+}

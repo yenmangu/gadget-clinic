@@ -95,32 +95,52 @@ get_header();
 
   </h4>
   <h3 class="deviceSelected"><?=$devices['deviceName']?></h3>
-  <div class="repairOption choose-repair">
-    <p>
-      Choose Repair Type
-      </br> </br>
-    </p>
-    <div class="screenRepair repairOption">
-      <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-broken-phone-64.png" alt="broken-phone-image">
+  <div class="option-wrapper">
+    <div class="repairOption choose-repair">
+      <p>
+        Choose Repair Type
+        </br> </br>
+      </p>
+      <div class="repair-wrapper">
+        <div class="screenRepair repair-option">
+          <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-broken-phone-64.png" alt="broken-phone-image">
 
-      <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/screen-replacement?id=<?=$devices['deviceId']?>"
-        class="button">
-        Screen Replacement
-      </a>
-    </div>
-    <div class="waterDamage repairOption">
-      <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-water-64.png" alt="water-droplet">
-      <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/water-damage/?id=<?=$devices['deviceId']?>"
-        class="button">
-        Water Damage
-      </a>
-    </div>
-    <div class="batteryReplacement repairOption">
-      <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-empty-battery-64.png" alt="sad-battery">
-      <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/battery-replacement/?id=<?=$devices['deviceId']?>"
-        class="button">
-        Battery Replacement
-      </a>
+          <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/screen-replacement?id=<?=$devices['deviceId']?>"
+            class="button">
+            Screen Replacement
+          </a>
+
+        </div>
+        <div class="repair-copy-wrapper">
+          <p class="repair-copy">placeholder copy about the repair service </p>
+        </div>
+      </div>
+      <div class="repair-wrapper">
+        <div class="waterDamage repair-option">
+          <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-water-64.png" alt="water-droplet">
+          <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/water-damage/?id=<?=$devices['deviceId']?>"
+            class="button">
+            Water Damage
+          </a>
+
+        </div>
+        <div class="repair-copy-wrapper">
+          <p class="repair-copy">placeholder copy about the repair service </p>
+        </div>
+      </div>
+      <div class="repair-wrapper">
+        <div class="batteryReplacement repair-option">
+          <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-empty-battery-64.png" alt="sad-battery">
+          <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/battery-replacement/?id=<?=$devices['deviceId']?>"
+            class="button">
+            Battery Replacement
+          </a>
+
+        </div>
+        <div class="repair-copy-wrapper">
+          <p class="repair-copy">placeholder copy about the repair service </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
