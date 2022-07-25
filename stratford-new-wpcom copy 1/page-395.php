@@ -30,34 +30,36 @@ get_header();
 		?>
 
 <body>
-  <h3 style=>Device List</h3>
-  <h4>Choose Your Samsung</h4>
+  <div class="choose-container">
+    <h3 class="choose-h3">Device List</h3>
+    <h4 class="choose-h4">Choose Your Samsung</h4>
 
-  <table style=>
-    <thead>
-      <tr>
-        <th style=>
-        </th>
-      </tr>
-    </thead>
-    <tbody style="margin-left:100px">
-      <?php 
+    <table style=>
+      <thead>
+        <tr>
+          <th style=>
+          </th>
+        </tr>
+      </thead>
+      <tbody style="margin-left:100px">
+        <?php 
 
           foreach ($devices AS $device): 
 					$newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
 					//$newUrl = "device-repair-service.php?id=$device[deviceId]";
 					?>
-      <tr style=>
-        <td style=>
-          <a href="<?=$newUrl?>">
-            <?php echo "$device[deviceName]" ?>
-          </a>
+        <tr style=>
+          <td style=>
+            <a href="<?=$newUrl?>">
+              <?php echo "$device[deviceName]" ?>
+            </a>
 
-        </td>
-      </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
 </body>
 
 <section id="primary" class="content-area">
