@@ -45,9 +45,15 @@ get_header();
         <tbody>
           <?php 
 
-          foreach ($devices AS $device): 
+          foreach ($devices AS $device):
+          
 					$newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
-					//$newUrl = "device-repair-service.php?id=$device[deviceId]";
+            
+          if (isset($device['image-url'])) {
+              $imageUrl = $device['image-url'];
+            } else {
+              echo "Image does not exist";
+            }
 					?>
           <tr class="device-row">
             <td class="device-row-data">
