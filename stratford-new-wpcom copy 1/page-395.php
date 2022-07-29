@@ -29,69 +29,41 @@ get_header();
       
 		?>
 
-<body>
-  <div class="choose-container">
-    <!-- <h3 class="choose-h3">Device List</h3> -->
-    <div class="heading-container">
-      <h4 class="choose-h4">Choose Your Samsung Model</h4>
-    </div>
-    <div class="table-container">
-      <table class="device-table">
-        <thead class="column-heads">
-          <tr>
-            <th>
-              <p>device column</p>
-            </th>
-            <th>
-              <p>image column</p>
-            </th>
-          </tr>
 
-        </thead>
-        <tbody>
-          <?php 
+  <body>
+    <div class="choose-container">
+      <!-- <h3 class="choose-h3">Device List</h3> -->
+      <div class="heading-container">
+        <h4 class="choose-h4">Choose Your Samsung Model</h4>
+      </div>
+      
+      <div class="device-container">
+      <?php 
 
-          foreach ($devices AS $device): 
-					$newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
-					//$newUrl = "device-repair-service.php?id=$device[deviceId]";
-					?>
-          <tr class="device-row">
-            <td class="device-row-data">
+        foreach ($devices AS $device): 
+        $newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
+        //$newUrl = "device-repair-service.php?id=$device[deviceId]";
+        ?>
+          <div class="device-wrapper">
+            <div class="device-url-wrapper">
               <a class="device-row-link" href="<?=$newUrl?>">
                 <?php echo "$device[deviceName]" ?>
-              </a>
-            </td>
-            <td>
-              <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" srcset="" width="100">
-            </td>
-          </tr>
+              </a>       
+          </div>
+        <div class="device-image-wrapper">
+          <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" width="100px";>
+        </div>
+      </div>
 
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-    </div>
+          </div>
 
-  </div>
-</body>
+      </div>
+      <?php endforeach; ?> 
+  </body>
 
 <section id="primary" class="content-area">
   <main id="main" class="site-main">
 
-    <?php
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				get_template_part( 'template-parts/content/content', 'page' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) {
-					comments_template();
-				}
-
-			endwhile; // End of the loop.
-			?>
 
 
 

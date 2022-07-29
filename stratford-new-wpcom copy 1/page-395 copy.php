@@ -9,7 +9,6 @@
  * @subpackage Varia
  * @since 1.0.0
  */
-// iphone 
 
 get_header();
 ?>
@@ -20,7 +19,7 @@ get_header();
         $connection = new PDO($dsn, $username, $password);
         $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //echo "connection succesful";
-        $sql = "SELECT * FROM newdevices WHERE deviceType = 'appleIphone'";
+        $sql = "SELECT * FROM newdevices WHERE deviceType = 'samsung' ";
         $devices = $connection -> query ($sql);
         
       } catch (PDOException $error){
@@ -34,7 +33,7 @@ get_header();
   <div class="choose-container">
     <!-- <h3 class="choose-h3">Device List</h3> -->
     <div class="heading-container">
-      <h4 class="choose-h4">Choose Your iPhone Model</h4>
+      <h4 class="choose-h4">Choose Your Samsung Model</h4>
     </div>
     <div class="table-container">
       <table class="device-table">
@@ -54,20 +53,20 @@ get_header();
               <a class="device-row-link" href="<?=$newUrl?>">
                 <?php echo "$device[deviceName]" ?>
               </a>
-
             </td>
             <td class="device-image">
-              <p>image here</p>
+              <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" srcset="" width="100">
             </td>
           </tr>
+
           <?php endforeach; ?>
         </tbody>
       </table>
     </div>
 
-
   </div>
 </body>
+
 <section id="primary" class="content-area">
   <main id="main" class="site-main">
 
