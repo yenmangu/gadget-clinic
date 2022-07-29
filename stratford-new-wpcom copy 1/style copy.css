@@ -3719,14 +3719,11 @@ body:not(.fse-enabled) .footer-menu a {
 	}
 }
 
-/* DISABLE MAX WIDTH */
-
-
 @media only screen and (min-width: 1280px) {
 	.responsive-max-width, .entry-content > .wp-block-button.aligncenter, hr.wp-block-separator.is-style-wide, .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.wp-block-button):not(.entry-attachment),
 	.entry-content > *:not(.wp-block-button),
 	.entry-content [class*="inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator), .entry-content .wp-audio-shortcode, .post-navigation, .pagination {
-		max-width: none;
+		max-width: calc( 932px - 32px);
 	}
 }
 
@@ -3762,20 +3759,10 @@ body:not(.fse-enabled) .footer-menu a {
 	}
 }
 
-/* MAX WIDTH */
-
-@media only screen and (min-width: 2560px) {
-	.entry-content > .alignwide, .entry-content > .alignwide.wp-block-jetpack-gif, .entry-content > .alignwide.wp-block-jetpack-tiled-gallery {
-		/* width: calc(calc( 932px - 32px) + 256px); */
-		max-width: none;
-	}
-}
-
 @media only screen and (min-width: 1280px) {
 	.entry-content > .alignwide, .entry-content > .alignwide.wp-block-jetpack-gif, .entry-content > .alignwide.wp-block-jetpack-tiled-gallery {
-		/* width: calc(calc( 932px - 32px) + 256px); */
-		width: 100%;
-		max-width: none;
+		width: calc(calc( 932px - 32px) + 256px);
+		max-width: calc(100% - 32px);
 	}
 }
 
@@ -3814,23 +3801,12 @@ body:not(.fse-enabled) .footer-menu a {
 	}
 }
 
-
-
 @media only screen and (min-width: 1280px) {
 	.entry-content > .alignwide [class*="inner-container"] > .alignwide, .entry-content > .alignfull [class*="inner-container"] > .alignwide {
-		/* width: calc(calc( 932px - 32px) + 256px); */
-		width: 100%;
-		max-width: none;
+		width: calc(calc( 932px - 32px) + 256px);
+		max-width: 100%;
 	}
 }
-
-@media only screen and (min-width: 2560px) {
-	.entry-content > .alignwide [class*="inner-container"] > .alignwide, .entry-content > .alignfull [class*="inner-container"] > .alignwide {
-		/* width: calc(calc( 932px - 32px) + 256px); */
-		max-width: none;
-	}
-}
-
 
 .entry-content > .alignfull, .entry-content > .alignfull.wp-block-jetpack-gif, .entry-content > .alignfull.wp-block-jetpack-tiled-gallery {
 	margin-left: -16px;
@@ -3886,30 +3862,13 @@ body:not(.fse-enabled) .footer-menu a {
 	}
 }
 
-
-
 @media only screen and (min-width: 1280px) {
 	.entry-content > .alignright {
 		/*rtl:ignore*/
-		 
-	
-		/* margin-right: calc( 0.5 * (100vw - calc( 932px - 32px))); */
-		max-width: none;
+		margin-right: calc( 0.5 * (100vw - calc( 932px - 32px)));
+		max-width: calc( 0.5 * calc( 932px - 32px));
 	}
-} 
-
-@media only screen and (min-width: 2560px) {
-	.entry-content > .alignright {
-		/*rtl:ignore*/
-		 
-	
-		/* margin-right: calc( 0.5 * (100vw - calc( 932px - 32px))); */
-		max-width: none;
-	}
-} 
-
-
-
+}
 
 .entry-content > .wp-block-button:not(.alignleft):not(.alignright), .entry-content > .alignleft {
 	/*rtl:ignore*/
@@ -3951,22 +3910,10 @@ body:not(.fse-enabled) .footer-menu a {
 @media only screen and (min-width: 1280px) {
 	.entry-content > .wp-block-button:not(.alignleft):not(.alignright), .entry-content > .alignleft {
 		/*rtl:ignore*/
-	
 		margin-left: calc( 0.5 * (100vw - calc( 932px - 32px)));
 		max-width: calc( 0.5 * calc( 932px - 32px));
 	}
-} 
- 
-@media only screen and (min-width: 2560px) {
-	.entry-content > .wp-block-button:not(.alignleft):not(.alignright), .entry-content > .alignleft {
-		/*rtl:ignore*/
-	
-		/* margin-left: calc( 0.5 * (100vw - calc( 932px - 32px))); */
-		max-width: none;
-	}
-} 
- 
-
+}
 
 /**
  * Vendors
@@ -4193,7 +4140,7 @@ p:not(.site-title) a:hover {
  */
 #masthead {
 	border-bottom: 1px solid var(--wp--preset--color--background-high-contrast);
-	background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);;
+	background: var(--wp--preset--color--background);
 	-webkit-transition: all .25s ease-in-out;
 	-moz-transition: all .25s ease-in-out;
 	transition: all .25s ease-in-out;
@@ -4204,7 +4151,7 @@ p:not(.site-title) a:hover {
 	display: flex;
 	flex-wrap: wrap;
 	position: relative;
-	z-index: 999;
+	z-index: 1;
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;

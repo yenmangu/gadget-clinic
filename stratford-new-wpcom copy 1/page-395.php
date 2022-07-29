@@ -33,7 +33,7 @@ get_header();
   <div class="choose-container">
     <!-- <h3 class="choose-h3">Device List</h3> -->
     <div class="heading-container">
-      <h4 class="choose-h4">Choose Your Samsung</h4>
+      <h4 class="choose-h4">Choose Your Samsung Model</h4>
     </div>
     <div class="table-container">
       <table class="device-table">
