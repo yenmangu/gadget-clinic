@@ -92,7 +92,7 @@ get_header();
 		$result->bindParam(1, $id);
 		$result->execute();
 
-		$row = $result->fetch()
+		$devices = $result->fetch()
 
 		// while ($row = $result -> fetch()) {
 		// 	echo $row['deviceName']. "<br>";
@@ -107,7 +107,7 @@ get_header();
 				Services and Repairs for <br>
 
 				</h4>
-				<img src="<?= $device['image-url'] ?>" alt=""></img>
+				<img src="<?= $devices['image-url'] ?>" alt=""></img>
 				<h3 class="deviceSelected"><?= $row['deviceName'] ?></h3>
 				<div class="repairOption">
 					<p>
