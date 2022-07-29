@@ -93,7 +93,7 @@ $result -> execute();
 $devices = $result -> fetch();
     echo $devices['deviceName'];
 ?>
-<div class="main-container">
+<div class="main-container" id="battery-form">
   <h1 class="main-title">Gadget Clinic</h1>
   <h2 class="main-repair">Repair or Replace the Battery on your </h2> <br>
   <br>

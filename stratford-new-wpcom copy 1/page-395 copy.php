@@ -30,6 +30,25 @@ get_header();
 		?>
 
 <body>
+<?php 
+
+foreach ($devices AS $device): 
+$newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
+//$newUrl = "device-repair-service.php?id=$device[deviceId]";
+?>
+  <div class="device-container">
+    <div class="device-url-wrapper">
+    <a class="device-row-link" href="<?=$newUrl?>">
+      <?php echo "$device[deviceName]" ?>
+    </a>
+      
+    </div>
+    <div class="device-image-wrapper">
+  
+    </div>
+
+  </div>
+
   <div class="choose-container">
     <!-- <h3 class="choose-h3">Device List</h3> -->
     <div class="heading-container">
@@ -90,8 +109,7 @@ get_header();
 
   </main><!-- #main -->
 </section><!-- #primary -->
-
-
+ 
 <?php
 
 get_footer();

@@ -57,14 +57,27 @@ get_header();
 
             </td>
             <td class="device-image">
-              <p>image here</p>
+              <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" srcset="" width="100">
             </td>
           </tr>
           <?php endforeach; ?>
         </tbody>
       </table>
     </div>
-
+    <div class="side-container">
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
+      </div>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
+      </div>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
+      </div>
+    </div>
 
   </div>
 </body>

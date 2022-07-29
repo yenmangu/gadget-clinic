@@ -89,7 +89,7 @@ $result -> execute();
 $devices = $result -> fetch();
 
 ?>
-<div class="main-container">
+<div class="main-container" id="screen-form">
   <h1 class="main-title">Gadget Clinic</h1>
   <h2 class="main-repair">Repair or Replace the Screen on your </h2> <br>
   <br>

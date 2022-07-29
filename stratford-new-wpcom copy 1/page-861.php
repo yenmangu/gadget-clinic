@@ -38,14 +38,7 @@ get_header();
     <div class="table-container">
       <table class="device-table">
         <thead class="column-heads">
-          <tr>
-            <th>
-              <p>device column</p>
-            </th>
-            <th>
-              <p>image column</p>
-            </th>
-          </tr>
+          
 
         </thead>
         <tbody>
@@ -62,7 +55,7 @@ get_header();
               </a>
             </td>
             <td>
-              <p>image here</p>
+            <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" srcset="" width="100">
             </td>
           </tr>
 
@@ -70,7 +63,20 @@ get_header();
         </tbody>
       </table>
     </div>
-
+    <div class="side-container">
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
+      </div>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
+      </div>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
+      </div>
+    </div>
   </div>
   <?php
     get_footer();

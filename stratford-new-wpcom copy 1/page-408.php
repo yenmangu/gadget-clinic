@@ -92,7 +92,7 @@ get_header();
 
             ?>
 
-<div class="main-container">
+<div class="main-container" id="water-damage-form">
   <h1 class="main-title">Gadget Clinic</h1>
   <h2 class="main-repair">Repair a water-damaged device </h2> <br>
   <br>

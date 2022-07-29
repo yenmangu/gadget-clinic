@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <div class="deviceName" ">
+            <h4 class=" deviceHeading ">
+            Services and Repairs for <br>
+          
+            </h4>
+            <h3 class="deviceSelected "><?= $devices['deviceName'] ?></h3>
+            <div class="option-wrapper ">
+          
+              <div class="repairOption choose-repair ">
+          
+                <p>
+                  Choose Repair Type
+                  <br> <br>
+                </p>
+              </div>
+              <div class="repair-wrapper ">
+                <div class="screenRepair repair-option ">
+                  <img class="style-svg " src="/wp-content/uploads/2022/07/icons8-broken-phone-64.png " alt="broken-phone-image ">
+          
+                  <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/screen-replacement?id=<?=$ devices[ 'deviceId'] ?>" class="button"> Screen Replacement
+    </a>
+  </div>
+
+  <div class="repair-copy-wrapper">
+    <p class="repair-copy">placeholder copy about the repair service </p>
+  </div>
+  </div>
+  <div class="repair-wrapper">
+    <div class="waterDamage repair-option">
+      <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-water-64.png" alt="water-droplet">
+      <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/water-damage/?id=<?= $devices['deviceId'] ?>" class="button">
+                    Water Damage
+                  </a>
+
+    </div>
+    <div class="repair-copy-wrapper">
+      <p class="repair-copy">placeholder copy about the repair service </p>
+    </div>
+  </div>
+  <div class="repair-wrapper">
+    <div class="batteryReplacement repair-option">
+      <img class="style-svg" src="/wp-content/uploads/2022/07/icons8-empty-battery-64.png" alt="sad-battery">
+      <a href="http://18.168.90.222/home/brand-new-clinic/gadget-repair/battery-replacement/?id=<?= $devices['deviceId'] ?>" class="button">
+                    Battery Replacement
+                  </a>
+
+    </div>
+    <div class="repair-copy-wrapper">
+      <p class="repair-copy">placeholder copy about the repair service </p>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <script src="" async defer></script>
+</body>
+
+</html>

@@ -29,48 +29,83 @@ get_header();
       
 		?>
 
+<body>
 
-  <body>
-    <div class="choose-container">
-      <!-- <h3 class="choose-h3">Device List</h3> -->
-      <div class="heading-container">
-        <h4 class="choose-h4">Choose Your Samsung Model</h4>
-      </div>
-      
-      <div class="device-container">
-      <?php 
+  <div class="choose-container">
+    <!-- <h3 class="choose-h3">Device List</h3> -->
+    <div class="heading-container">
+      <h4 class="choose-h4">Choose Your Samsung Model</h4>
+    </div>
+    <div class="table-container">
+      <table class="device-table">
+        <thead class="column-heads">
+          
 
-        foreach ($devices AS $device): 
-        $newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
-        //$newUrl = "device-repair-service.php?id=$device[deviceId]";
-        ?>
-          <div class="device-wrapper">
-            <div class="device-url-wrapper">
+        </thead>
+        <tbody>
+          <?php 
+
+          foreach ($devices AS $device): 
+					$newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
+					//$newUrl = "device-repair-service.php?id=$device[deviceId]";
+					?>
+          <tr class="device-row">
+            <td class="device-row-data">
               <a class="device-row-link" href="<?=$newUrl?>">
                 <?php echo "$device[deviceName]" ?>
-              </a>       
-          </div>
-        <div class="device-image-wrapper">
-          <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" width="100px";>
-        </div>
-      </div>
+              </a>
+            </td>
+            <td class="device-image">
+              <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" srcset="" width="100">
+            </td>
+          </tr>
 
-          </div>
-
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+    <div class="side-container">
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
       </div>
-      <?php endforeach; ?> 
-  </body>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
+      </div>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/300" alt="">
+      </div>
+    </div>
+
+  </div>
+</body>
 
 <section id="primary" class="content-area">
   <main id="main" class="site-main">
 
+    <?php
+
+			/* Start the Loop */
+			while ( have_posts() ) :
+				the_post();
+
+				get_template_part( 'template-parts/content/content', 'page' );
+
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
+
+			endwhile; // End of the loop.
+			?>
 
 
 
   </main><!-- #main -->
 </section><!-- #primary -->
-
-
+ 
 <?php
 
 get_footer();
