@@ -44,7 +44,7 @@ get_header();
               <p>device column</p>
             </th>
             <th>
-              <p>image column</p>
+            <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" srcset="" width="100">
             </th>
           </tr>
 

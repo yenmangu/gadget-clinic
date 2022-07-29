@@ -62,7 +62,7 @@ get_header();
               </a>
             </td>
             <td>
-              <p>image here</p>
+              <img src="<?=$device['image-url']?>" alt="<?=$device['deviceName']?>" srcset="" width="100">
             </td>
           </tr>
 
