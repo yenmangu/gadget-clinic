@@ -111,7 +111,7 @@ get_header();
 			Services and Repairs for <br>
 			
 		</h4>
-		<img src ="<?=$device['image-url']?>"></img>
+		<img src ="<?=$device['image-url']?>" alt=""></img>
 		<h3 class ="deviceSelected"><?=$row['deviceName']?></h3>
 		<div class="repairOption">
 			<p>
