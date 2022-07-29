@@ -104,12 +104,14 @@ get_header();
 	
 
 	?>
+
 	
 	<div class="deviceName" ">
 		<h4 class="deviceHeading">
 			Services and Repairs for <br>
 			
 		</h4>
+		<img src ="<?=$device['image-url']?>"></img>
 		<h3 class ="deviceSelected"><?=$row['deviceName']?></h3>
 		<div class="repairOption">
 			<p>

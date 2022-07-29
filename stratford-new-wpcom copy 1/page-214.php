@@ -117,6 +117,7 @@ get_header();
 				
 			</h4>
 			<h3 class ="deviceSelected"><?=$devices['deviceName']?></h3>
+			<img class = "device-image" src="<?=$devices['image-url']?>" alt="<?=$devices['deviceName']?>" width ="200" height="200">
 			<div class="repairOption choose-repair">
 				<p>
 					Choose Repair Type
