@@ -73,15 +73,27 @@ get_header();
     <div class="side-container">
       <div class="content-example">
         <p>example content</p>
-        <img src="https://via.placeholder.com/300" alt="">
+        <img src="https://via.placeholder.com/200" alt="">
       </div>
       <div class="content-example">
         <p>example content</p>
-        <img src="https://via.placeholder.com/300" alt="">
+        <img src="https://via.placeholder.com/200" alt="">
       </div>
       <div class="content-example">
         <p>example content</p>
-        <img src="https://via.placeholder.com/300" alt="">
+        <img src="https://via.placeholder.com/200" alt="">
+      </div>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/200" alt="">
+      </div>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/200" alt="">
+      </div>
+      <div class="content-example">
+        <p>example content</p>
+        <img src="https://via.placeholder.com/200" alt="">
       </div>
     </div>
 
