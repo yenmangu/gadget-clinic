@@ -108,10 +108,7 @@ try {
                 </p>
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
-            <div class="content-example">
-                <p>example content</p>
-                <img src="https://via.placeholder.com/200" alt="">
-            </div>
+
             <div class="content-example">
                 <h3>We provide a wide range of repairs on multiple apple devices.</h3>
                 <br>
@@ -120,6 +117,10 @@ try {
                     your iPad or iPhone. If you are looking for the highest level of service, look no further than
                     Gadget Solutions Upminster. Our goal is to provide you with the best possible service at
                     affordable prices.</p>
+                <img src="https://via.placeholder.com/200" alt="">
+            </div>
+            <div class="content-example">
+                <p>example content</p>
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
             <div class="content-example">
