@@ -3633,7 +3633,7 @@ body:not(.fse-enabled) .footer-menu a {
 	.responsive-max-width, .entry-content > .wp-block-button.aligncenter, hr.wp-block-separator.is-style-wide, .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.wp-block-button):not(.entry-attachment),
 	.entry-content > *:not(.wp-block-button),
 	.entry-content [class*="inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator), .entry-content .wp-audio-shortcode, .post-navigation, .pagination {
-		max-width: calc( 782px - 32px);
+		max-width: 100%;
 	}
 }
 
@@ -3673,7 +3673,7 @@ body:not(.fse-enabled) .footer-menu a {
 @media only screen and (min-width: 1024px) {
 	.entry-content > .alignwide, .entry-content > .alignwide.wp-block-jetpack-gif, .entry-content > .alignwide.wp-block-jetpack-tiled-gallery {
 		width: calc(calc( 782px - 32px) + 256px);
-		max-width: calc(100% - 32px);
+		max-width: 100%;
 	}
 }
 
@@ -3776,7 +3776,7 @@ body:not(.fse-enabled) .footer-menu a {
 	.entry-content > .alignright {
 		/*rtl:ignore*/
 		margin-right: calc( 0.5 * (100vw - calc( 782px - 32px)));
-		max-width: calc( 0.5 * calc( 782px - 32px));
+		max-width: 100%;
 	}
 }
 
@@ -3813,7 +3813,7 @@ body:not(.fse-enabled) .footer-menu a {
 	.entry-content > .wp-block-button:not(.alignleft):not(.alignright), .entry-content > .alignleft {
 		/*rtl:ignore*/
 		margin-left: calc( 0.5 * (100vw - calc( 782px - 32px)));
-		max-width: calc( 0.5 * calc( 782px - 32px));
+		max-width: 100%;
 	}
 }
 
@@ -3821,7 +3821,7 @@ body:not(.fse-enabled) .footer-menu a {
 	.entry-content > .wp-block-button:not(.alignleft):not(.alignright), .entry-content > .alignleft {
 		/*rtl:ignore*/
 		margin-left: calc( 0.5 * (100vw - calc( 782px - 32px)));
-		max-width: calc( 0.5 * calc( 782px - 32px));
+		max-width: 100%;
 	}
 }
 
@@ -3829,7 +3829,7 @@ body:not(.fse-enabled) .footer-menu a {
 	.entry-content > .wp-block-button:not(.alignleft):not(.alignright), .entry-content > .alignleft {
 		/*rtl:ignore*/
 		margin-left: calc( 0.5 * (100vw - calc( 782px - 32px)));
-		max-width: calc( 0.5 * calc( 782px - 32px));
+		max-width: 100%;
 	}
 }
 
