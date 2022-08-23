@@ -1,7 +1,7 @@
 <?php
 
 global $wpdb;
-$result = $wpdb->get_devices("SELECT * FROM newdevices");
+$result = $wpdb->get_results("SELECT * FROM newdevices");
 
 echo "<style>";
 echo "body {font-family: Arial;}";
@@ -13,11 +13,32 @@ echo "<body>";
 
 echo "<div class=\"table_container\"><table>";
 echo "<tr><th style=\"padding-left:10px;\">device</th></tr>";
-foreach ($result as $device) {
-    
-    $url = "https://gadgetsclinic.co.uk/home/clinic?id=$device[deviceId]";
-
-    echo "<tr><td><a href='$url'>" . $device->deviceName . "</a></td></tr>";
-    
+foreach ($result as $row) {
+    $newUrl = "https://gadgetsclinic.co.uk/home/clinic?id={$row->id}";
+    echo "<tr><td><a href='{$newUrl}'>{$row->deviceName}</a></td></tr>";
+    echo "<tr><td><img src='{$row->image}' alt=''></td></tr>";
 }
 echo "</table></div>";
+
+?>
+
+<?php
+
+global $wpdb;
+$result = $wpdb->get_results("SELECT * FROM newdevices WHERE deviceType = 'appleIphone'");
+
+echo "<style>";
+echo "body {font-family: roboto;}";
+echo ".all-devices {max-width: 100% !important; display: flex; flex-direction: horizontal; flex-wrap: wrap;}";
+echo ".device-wrapper {width: 200px}";
+echo "</style></head>";
+echo "<body>";
+
+echo "<div class='all-devices'>";
+foreach ($result as $row) {
+    $newUrl = "https://gadgetsclinic.co.uk/home/clinic?id={$row->id}";
+    echo "<div class='device-wrapper'><img src='{$row->image}' alt='{$row->deviceName}'><a href='{$newUrl}'>{$row->deviceName}</a></div>";
+}
+echo "</div>";
+
+?>

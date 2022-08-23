@@ -1,7 +1,7 @@
 <?php
 
 global $wpdb;
-$result = $wpdb->get_results("SELECT * FROM newdevices WHERE deviceType = 'samsung'");
+$result = $wpdb->get_results("SELECT * FROM newdevices WHERE deviceType = 'ipad'");
 
 echo "<style>";
 echo "body {font-family: roboto;}";
