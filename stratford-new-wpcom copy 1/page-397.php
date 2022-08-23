@@ -18,13 +18,13 @@ get_header();
 require "sql_connect.php";
 $devices = "";
 try {
-  $connection = new PDO($dsn, $username, $password);
-  $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  //echo "connection succesful";
-  $sql = "SELECT * FROM newdevices WHERE deviceType = 'appleIphone'";
-  $devices = $connection->query($sql);
+    $connection = new PDO($dsn, $username, $password);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //echo "connection succesful";
+    $sql = "SELECT * FROM newdevices WHERE deviceType = 'appleIphone'";
+    $devices = $connection->query($sql);
 } catch (PDOException $error) {
-  echo $error->getMessage();
+    echo $error->getMessage();
 }
 
 ?>
@@ -44,15 +44,15 @@ try {
                 <tbody>
                     <?php
 
-          foreach ($devices as $device) :
-            $newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
-            if (isset($device['image-url'])) {
-              $imageUrl = $device['image-url'];
-            } else {
-              echo "Image does not exist";
-            }
+                    foreach ($devices as $device) :
+                        $newUrl = "http://18.168.90.222/home/clinic/gadget-repair?id=$device[deviceId]";
+                        if (isset($device['image-url'])) {
+                            $imageUrl = $device['image-url'];
+                        } else {
+                            echo "Image does not exist";
+                        }
 
-          ?>
+                    ?>
                     <tr class="device-row">
                         <td class="device-row-data">
                             <a class="device-row-link" href="<?= $newUrl ?>">
@@ -136,19 +136,19 @@ try {
 
         <?php
 
-    /* Start the Loop */
-    while (have_posts()) :
-      the_post();
+        /* Start the Loop */
+        while (have_posts()) :
+            the_post();
 
-      get_template_part('template-parts/content/content', 'page');
+            get_template_part('template-parts/content/content', 'page');
 
-      // If comments are open or we have at least one comment, load up the comment template.
-      if (comments_open() || get_comments_number()) {
-        comments_template();
-      }
+            // If comments are open or we have at least one comment, load up the comment template.
+            if (comments_open() || get_comments_number()) {
+                comments_template();
+            }
 
-    endwhile; // End of the loop.
-    ?>
+        endwhile; // End of the loop.
+        ?>
 
 
 
