@@ -19,3 +19,10 @@ foreach ($result as $row) {
     <a class='device-link-id' href='{$newUrl}'>{$row->deviceName}</a></div>";
 }
 echo "</div>";
+
+global $wpdb;
+
+$newEntry = $wpdb-> insert (
+    'newdevices'
+    array ()
+)
