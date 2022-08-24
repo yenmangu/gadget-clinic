@@ -1,9 +1,14 @@
 <?php
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-} else {
-    $id = "";
+// if (isset($_GET['id'])) {
+//     $id = $_GET['id'];
+// } else {
+//     $id = "";
+// };
+
+$id_var = (get_query_var('id')) ? get_query_var('id') : false;
+if ($id_var) {
+    $id_var = $id;
 };
 
 global $wpdb;
