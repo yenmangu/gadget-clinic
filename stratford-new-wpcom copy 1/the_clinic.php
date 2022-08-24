@@ -4,11 +4,11 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else {
     $id = "";
-}
+};
 
 global $wpdb;
 
-$result = $wpdb->get_results("SELECT * all_device_repairs WHERE id = '$id'");
+$result = $wpdb->get_results("SELECT * all_device_repairs WHERE id = $id");
 $image_result = $wpdb->get_results("SELECT * newdevices WHERE deviceId = $id");
 
 echo "<style>";
