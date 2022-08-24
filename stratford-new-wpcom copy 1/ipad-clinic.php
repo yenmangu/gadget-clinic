@@ -8,4 +8,4 @@ if (isset($_GET['id'])) {
 
 global $wpdb;
 
-$result = $wpdb -> get_results("SELECT * " )
+$result = $wpdb -> get_results("SELECT *  " )
