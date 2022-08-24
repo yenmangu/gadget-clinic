@@ -20,8 +20,8 @@ foreach ($result as $row) {
 }
 echo "</div>";
 
-global $wpdb;
-$new_entry = $wpdb -> insert(
+global $wpdd;
+$new_entry = $wpdb -> insert (
     'newdevices',
-    array('column1' => '')
+    array('column' => '')
 )
