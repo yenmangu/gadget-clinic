@@ -21,8 +21,7 @@ foreach ($result as $row) {
 echo "</div>";
 
 global $wpdb;
-
-$newEntry = $wpdb-> insert (
-    'newdevices'
-    array ()
+$new_entry = $wpdb -> insert(
+    'newdevices',
+    array('column1' => '')
 )
