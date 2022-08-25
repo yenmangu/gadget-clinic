@@ -14,7 +14,10 @@ echo "<body>";
 
 echo "<div class='all-devices'>";
 foreach ($result as $row) {
-    $newUrl = "https://gadgetsclinic.co.uk/home/clinic?id={$row->id}";
+    $id = $row->id;
+    $name = $row->deviceName;
+    $device_no_space = str_replace(' ', '', $name);
+    $newUrl = "https://gadgetsclinic.co.uk/home/clinic?id={$id}";
     echo "<div class='device-wrapper'> <a class='device-link-id' href='{$newUrl}'><img src='{$row->image}' alt='{$row->deviceName}'></a>
     <a class='device-link-id' href='{$newUrl}'>{$row->deviceName}</a></div>";
 }

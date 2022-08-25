@@ -1162,7 +1162,12 @@ function _http_build_query($data, $prefix = null, $sep = null, $key = '', $urlen
 // 		// process $_POST data here
 // 	}
 // }
-
+function add_query_vars_filter_name($device_name_from_list)
+{
+	$device_name_from_list[] = "device";
+	return $device_name_from_list;
+}
+add_filter('query_vars', 'add_query_vars_filter_id');
 
 function add_query_vars_filter_id($device_id)
 {
