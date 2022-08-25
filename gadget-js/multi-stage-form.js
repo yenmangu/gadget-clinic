@@ -1,1 +1,1 @@
-alert("I am here");
+alert("There is a script running here");
