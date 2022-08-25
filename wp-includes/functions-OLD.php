@@ -1150,26 +1150,14 @@ function _http_build_query($data, $prefix = null, $sep = null, $key = '', $urlen
  * @param string       $value Optional. Either a query variable value, or a URL to act upon.
  * @param string       $url   Optional. A URL to act upon.
  * @return string New URL query string (unescaped).
- * 
  */
 
-// CUSTOM QUERIES //
-// add_action('init', 'process_get');
-
-// function process_get()
+// function add_query_vars_filter_id($device_id)
 // {
-// 	if (isset($_GET['unique_hidden_field'])) {
-// 		// process $_POST data here
-// 	}
+// 	$device_id[] = "id";
+// 	return $device_id;
 // }
-
-
-function add_query_vars_filter_id($device_id)
-{
-	$device_id[] = "id";
-	return $device_id;
-}
-add_filter('query_vars', 'add_query_vars_filter_id');
+// add_filter('query_vars', 'add_query_vars_filter_id');
 
 function add_query_arg(...$args)
 {
@@ -3878,153 +3866,153 @@ function _default_wp_die_handler($message, $title = '', $args = array())
 			$dir_attr = get_language_attributes();
 		}
 ?>
-		<!DOCTYPE html>
-		<html <?php echo $dir_attr; ?>>
+<!DOCTYPE html>
+<html <?php echo $dir_attr; ?>>
 
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $parsed_args['charset']; ?>" />
-			<meta name="viewport" content="width=device-width">
-			<?php
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $parsed_args['charset']; ?>" />
+    <meta name="viewport" content="width=device-width">
+    <?php
 			if (function_exists('wp_robots') && function_exists('wp_robots_no_robots') && function_exists('add_filter')) {
 				add_filter('wp_robots', 'wp_robots_no_robots');
 				wp_robots();
 			}
 			?>
-			<title><?php echo $title; ?></title>
-			<style type="text/css">
-				html {
-					background: #f1f1f1;
-				}
+    <title><?php echo $title; ?></title>
+    <style type="text/css">
+    html {
+        background: #f1f1f1;
+    }
 
-				body {
-					background: #fff;
-					border: 1px solid #ccd0d4;
-					color: #444;
-					font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-					margin: 2em auto;
-					padding: 1em 2em;
-					max-width: 700px;
-					-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
-					box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
-				}
+    body {
+        background: #fff;
+        border: 1px solid #ccd0d4;
+        color: #444;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        margin: 2em auto;
+        padding: 1em 2em;
+        max-width: 700px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    }
 
-				h1 {
-					border-bottom: 1px solid #dadada;
-					clear: both;
-					color: #666;
-					font-size: 24px;
-					margin: 30px 0 0 0;
-					padding: 0;
-					padding-bottom: 7px;
-				}
+    h1 {
+        border-bottom: 1px solid #dadada;
+        clear: both;
+        color: #666;
+        font-size: 24px;
+        margin: 30px 0 0 0;
+        padding: 0;
+        padding-bottom: 7px;
+    }
 
-				#error-page {
-					margin-top: 50px;
-				}
+    #error-page {
+        margin-top: 50px;
+    }
 
-				#error-page p,
-				#error-page .wp-die-message {
-					font-size: 14px;
-					line-height: 1.5;
-					margin: 25px 0 20px;
-				}
+    #error-page p,
+    #error-page .wp-die-message {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 25px 0 20px;
+    }
 
-				#error-page code {
-					font-family: Consolas, Monaco, monospace;
-				}
+    #error-page code {
+        font-family: Consolas, Monaco, monospace;
+    }
 
-				ul li {
-					margin-bottom: 10px;
-					font-size: 14px;
-				}
+    ul li {
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
 
-				a {
-					color: #0073aa;
-				}
+    a {
+        color: #0073aa;
+    }
 
-				a:hover,
-				a:active {
-					color: #006799;
-				}
+    a:hover,
+    a:active {
+        color: #006799;
+    }
 
-				a:focus {
-					color: #124964;
-					-webkit-box-shadow:
-						0 0 0 1px #5b9dd9,
-						0 0 2px 1px rgba(30, 140, 190, 0.8);
-					box-shadow:
-						0 0 0 1px #5b9dd9,
-						0 0 2px 1px rgba(30, 140, 190, 0.8);
-					outline: none;
-				}
+    a:focus {
+        color: #124964;
+        -webkit-box-shadow:
+            0 0 0 1px #5b9dd9,
+            0 0 2px 1px rgba(30, 140, 190, 0.8);
+        box-shadow:
+            0 0 0 1px #5b9dd9,
+            0 0 2px 1px rgba(30, 140, 190, 0.8);
+        outline: none;
+    }
 
-				.button {
-					background: #f3f5f6;
-					border: 1px solid #016087;
-					color: #016087;
-					display: inline-block;
-					text-decoration: none;
-					font-size: 13px;
-					line-height: 2;
-					height: 28px;
-					margin: 0;
-					padding: 0 10px 1px;
-					cursor: pointer;
-					-webkit-border-radius: 3px;
-					-webkit-appearance: none;
-					border-radius: 3px;
-					white-space: nowrap;
-					-webkit-box-sizing: border-box;
-					-moz-box-sizing: border-box;
-					box-sizing: border-box;
+    .button {
+        background: #f3f5f6;
+        border: 1px solid #016087;
+        color: #016087;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 13px;
+        line-height: 2;
+        height: 28px;
+        margin: 0;
+        padding: 0 10px 1px;
+        cursor: pointer;
+        -webkit-border-radius: 3px;
+        -webkit-appearance: none;
+        border-radius: 3px;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
 
-					vertical-align: top;
-				}
+        vertical-align: top;
+    }
 
-				.button.button-large {
-					line-height: 2.30769231;
-					min-height: 32px;
-					padding: 0 12px;
-				}
+    .button.button-large {
+        line-height: 2.30769231;
+        min-height: 32px;
+        padding: 0 12px;
+    }
 
-				.button:hover,
-				.button:focus {
-					background: #f1f1f1;
-				}
+    .button:hover,
+    .button:focus {
+        background: #f1f1f1;
+    }
 
-				.button:focus {
-					background: #f3f5f6;
-					border-color: #007cba;
-					-webkit-box-shadow: 0 0 0 1px #007cba;
-					box-shadow: 0 0 0 1px #007cba;
-					color: #016087;
-					outline: 2px solid transparent;
-					outline-offset: 0;
-				}
+    .button:focus {
+        background: #f3f5f6;
+        border-color: #007cba;
+        -webkit-box-shadow: 0 0 0 1px #007cba;
+        box-shadow: 0 0 0 1px #007cba;
+        color: #016087;
+        outline: 2px solid transparent;
+        outline-offset: 0;
+    }
 
-				.button:active {
-					background: #f3f5f6;
-					border-color: #7e8993;
-					-webkit-box-shadow: none;
-					box-shadow: none;
-				}
+    .button:active {
+        background: #f3f5f6;
+        border-color: #7e8993;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 
-				<?php
-				if ('rtl' === $text_direction) {
-					echo 'body { font-family: Tahoma, Arial; }';
-				}
-				?>
-			</style>
-		</head>
+    <?php if ('rtl'===$text_direction) {
+        echo 'body { font-family: Tahoma, Arial; }';
+    }
 
-		<body id="error-page">
-		<?php endif; // ! did_action( 'admin_head' ) 
+    ?>
+    </style>
+</head>
+
+<body id="error-page">
+    <?php endif; // ! did_action( 'admin_head' ) 
 		?>
-		<?php echo $message; ?>
-		</body>
+    <?php echo $message; ?>
+</body>
 
-		</html>
-		<?php
+</html>
+<?php
 		if ($parsed_args['exit']) {
 			die();
 		}
@@ -6727,614 +6715,492 @@ EOD;
 	function _cleanup_header_comment($str)
 	{
 		return trim(preg_replace('/\s*(?:\*\/|\?>).*/', '', $str));
-	}
+}
 
-	/**
-	 * Permanently delete comments or posts of any type that have held a status
-	 * of 'trash' for the number of days defined in EMPTY_TRASH_DAYS.
-	 *
-	 * The default value of `EMPTY_TRASH_DAYS` is 30 (days).
-	 *
-	 * @since 2.9.0
-	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
-	 */
-	function wp_scheduled_delete()
-	{
-		global $wpdb;
+/**
+* Permanently delete comments or posts of any type that have held a status
+* of 'trash' for the number of days defined in EMPTY_TRASH_DAYS.
+*
+* The default value of `EMPTY_TRASH_DAYS` is 30 (days).
+*
+* @since 2.9.0
+*
+* @global wpdb $wpdb WordPress database abstraction object.
+*/
+function wp_scheduled_delete()
+{
+global $wpdb;
 
-		$delete_timestamp = time() - (DAY_IN_SECONDS * EMPTY_TRASH_DAYS);
+$delete_timestamp = time() - (DAY_IN_SECONDS * EMPTY_TRASH_DAYS);
 
-		$posts_to_delete = $wpdb->get_results($wpdb->prepare("SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_trash_meta_time' AND meta_value < %d", $delete_timestamp), ARRAY_A);
+$posts_to_delete = $wpdb->get_results($wpdb->prepare("SELECT post_id FROM $wpdb->postmeta WHERE meta_key =
+'_wp_trash_meta_time' AND meta_value < %d", $delete_timestamp), ARRAY_A); foreach ((array) $posts_to_delete as $post) {
+    $post_id=(int) $post['post_id']; if (!$post_id) { continue; } $del_post=get_post($post_id); if (!$del_post
+    || 'trash' !==$del_post->post_status) {
+    delete_post_meta($post_id, '_wp_trash_meta_status');
+    delete_post_meta($post_id, '_wp_trash_meta_time');
+    } else {
+    wp_delete_post($post_id);
+    }
+    }
 
-		foreach ((array) $posts_to_delete as $post) {
-			$post_id = (int) $post['post_id'];
-			if (!$post_id) {
-				continue;
-			}
+    $comments_to_delete = $wpdb->get_results($wpdb->prepare("SELECT comment_id FROM $wpdb->commentmeta WHERE meta_key =
+    '_wp_trash_meta_time' AND meta_value < %d", $delete_timestamp), ARRAY_A); foreach ((array) $comments_to_delete as
+        $comment) { $comment_id=(int) $comment['comment_id']; if (!$comment_id) { continue; }
+        $del_comment=get_comment($comment_id); if (!$del_comment || 'trash' !==$del_comment->comment_approved) {
+        delete_comment_meta($comment_id, '_wp_trash_meta_time');
+        delete_comment_meta($comment_id, '_wp_trash_meta_status');
+        } else {
+        wp_delete_comment($del_comment);
+        }
+        }
+        }
 
-			$del_post = get_post($post_id);
+        /**
+        * Retrieve metadata from a file.
+        *
+        * Searches for metadata in the first 8 KB of a file, such as a plugin or theme.
+        * Each piece of metadata must be on its own line. Fields can not span multiple
+        * lines, the value will get cut at the end of the first line.
+        *
+        * If the file data is not within that first 8 KB, then the author should correct
+        * their plugin file and move the data headers to the top.
+        *
+        * @link https://codex.wordpress.org/File_Header
+        *
+        * @since 2.9.0
+        *
+        * @param string $file Absolute path to the file.
+        * @param array $default_headers List of headers, in the format `array( 'HeaderKey' => 'Header Name' )`.
+        * @param string $context Optional. If specified adds filter hook {@see 'extra_$context_headers'}.
+        * Default empty.
+        * @return string[] Array of file header values keyed by header name.
+        */
+        function get_file_data($file, $default_headers, $context = '')
+        {
+        // Pull only the first 8 KB of the file in.
+        $file_data = file_get_contents($file, false, null, 0, 8 * KB_IN_BYTES);
 
-			if (!$del_post || 'trash' !== $del_post->post_status) {
-				delete_post_meta($post_id, '_wp_trash_meta_status');
-				delete_post_meta($post_id, '_wp_trash_meta_time');
-			} else {
-				wp_delete_post($post_id);
-			}
-		}
+        if (false === $file_data) {
+        $file_data = '';
+        }
 
-		$comments_to_delete = $wpdb->get_results($wpdb->prepare("SELECT comment_id FROM $wpdb->commentmeta WHERE meta_key = '_wp_trash_meta_time' AND meta_value < %d", $delete_timestamp), ARRAY_A);
+        // Make sure we catch CR-only line endings.
+        $file_data = str_replace("\r", "\n", $file_data);
 
-		foreach ((array) $comments_to_delete as $comment) {
-			$comment_id = (int) $comment['comment_id'];
-			if (!$comment_id) {
-				continue;
-			}
+        /**
+        * Filters extra file headers by context.
+        *
+        * The dynamic portion of the hook name, `$context`, refers to
+        * the context where extra headers might be loaded.
+        *
+        * @since 2.9.0
+        *
+        * @param array $extra_context_headers Empty array by default.
+        */
+        $extra_headers = $context ? apply_filters("extra_{$context}_headers", array()) : array();
+        if ($extra_headers) {
+        $extra_headers = array_combine($extra_headers, $extra_headers); // Keys equal values.
+        $all_headers = array_merge($extra_headers, (array) $default_headers);
+        } else {
+        $all_headers = $default_headers;
+        }
 
-			$del_comment = get_comment($comment_id);
+        foreach ($all_headers as $field => $regex) {
+        if (preg_match('/^(?:[ \t]*<\?php)?[ \t\/*#@]*' . preg_quote($regex, '/' ) . ':(.*)$/mi' , $file_data, $match)
+            && $match[1]) { $all_headers[$field]=_cleanup_header_comment($match[1]); } else { $all_headers[$field]='' ;
+            } } return $all_headers; } /** * Returns true. * * Useful for returning true to filters easily. * * @since
+            3.0.0 * * @see __return_false() * * @return true True. */ function __return_true() { // phpcs:ignore
+            //WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+            return true; } /** * Returns false. * * Useful for returning false to filters easily. * * @since 3.0.0 * *
+            @see __return_true() * * @return false False. */ function __return_false() { // phpcs:ignore
+            WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+            return false; } /** * Returns 0. * * Useful for returning 0 to filters easily. * * @since 3.0.0 * * @return
+            int 0. */ function __return_zero() { // phpcs:ignore
+            WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+            return 0; } /** * Returns an empty array. * * Useful for returning an empty array to filters easily. * *
+            @since 3.0.0 * * @return array Empty array. */ function __return_empty_array() { // phpcs:ignore
+            WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+            return array(); } /** * Returns null. * * Useful for returning null to filters easily. * * @since 3.4.0 * *
+            @return null Null value. */ function __return_null() { // phpcs:ignore
+            WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+            return null; } /** * Returns an empty string. * * Useful for returning an empty string to filters easily. *
+            * @since 3.7.0 * * @see __return_null() * * @return string Empty string. */ function __return_empty_string()
+            { // phpcs:ignore
+            WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+            return '' ; } /** * Send a HTTP header to disable content type sniffing in browsers which support it. * *
+            @since 3.0.0 * * @see
+            https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx * @see
+            https://src.chromium.org/viewvc/chrome?view=rev&revision=6985 */ function send_nosniff_header() {
+            header('X-Content-Type-Options: nosniff'); } /** * Return a MySQL expression for selecting the week number
+            based on the start_of_week option. * * @ignore * @since 3.0.0 * * @param string $column Database column. *
+            @return string SQL clause. */ function _wp_mysql_week($column) { $start_of_week=(int)
+            get_option('start_of_week'); switch ($start_of_week) { case 1: return "WEEK( $column, 1 )" ; case 2: case 3:
+            case 4: case 5: case 6: return "WEEK( DATE_SUB( $column, INTERVAL $start_of_week DAY ), 0 )" ; case 0:
+            default: return "WEEK( $column, 0 )" ; } } /** * Find hierarchy loops using a callback function that maps
+            object IDs to parent IDs. * * @since 3.1.0 * @access private * * @param callable $callback Function that
+            accepts ( ID, $callback_args ) and outputs parent_ID. * @param int $start The ID to start the loop check at.
+            * @param int $start_parent The parent_ID of $start to use instead of calling $callback( $start ). * Use null
+            to always use $callback * @param array $callback_args Optional. Additional arguments to send to $callback. *
+            @return array IDs of all members of loop. */ function wp_find_hierarchy_loop($callback, $start,
+            $start_parent, $callback_args=array()) { $override=is_null($start_parent) ? array() : array($start=>
+            $start_parent);
 
-			if (!$del_comment || 'trash' !== $del_comment->comment_approved) {
-				delete_comment_meta($comment_id, '_wp_trash_meta_time');
-				delete_comment_meta($comment_id, '_wp_trash_meta_status');
-			} else {
-				wp_delete_comment($del_comment);
-			}
-		}
-	}
+            $arbitrary_loop_member = wp_find_hierarchy_loop_tortoise_hare($callback, $start, $override, $callback_args);
+            if (!$arbitrary_loop_member) {
+            return array();
+            }
 
-	/**
-	 * Retrieve metadata from a file.
-	 *
-	 * Searches for metadata in the first 8 KB of a file, such as a plugin or theme.
-	 * Each piece of metadata must be on its own line. Fields can not span multiple
-	 * lines, the value will get cut at the end of the first line.
-	 *
-	 * If the file data is not within that first 8 KB, then the author should correct
-	 * their plugin file and move the data headers to the top.
-	 *
-	 * @link https://codex.wordpress.org/File_Header
-	 *
-	 * @since 2.9.0
-	 *
-	 * @param string $file            Absolute path to the file.
-	 * @param array  $default_headers List of headers, in the format `array( 'HeaderKey' => 'Header Name' )`.
-	 * @param string $context         Optional. If specified adds filter hook {@see 'extra_$context_headers'}.
-	 *                                Default empty.
-	 * @return string[] Array of file header values keyed by header name.
-	 */
-	function get_file_data($file, $default_headers, $context = '')
-	{
-		// Pull only the first 8 KB of the file in.
-		$file_data = file_get_contents($file, false, null, 0, 8 * KB_IN_BYTES);
+            return wp_find_hierarchy_loop_tortoise_hare($callback, $arbitrary_loop_member, $override, $callback_args,
+            true);
+            }
 
-		if (false === $file_data) {
-			$file_data = '';
-		}
+            /**
+            * Use the "The Tortoise and the Hare" algorithm to detect loops.
+            *
+            * For every step of the algorithm, the hare takes two steps and the tortoise one.
+            * If the hare ever laps the tortoise, there must be a loop.
+            *
+            * @since 3.1.0
+            * @access private
+            *
+            * @param callable $callback Function that accepts ( ID, callback_arg, ... ) and outputs parent_ID.
+            * @param int $start The ID to start the loop check at.
+            * @param array $override Optional. An array of ( ID => parent_ID, ... ) to use instead of $callback.
+            * Default empty array.
+            * @param array $callback_args Optional. Additional arguments to send to $callback. Default empty array.
+            * @param bool $_return_loop Optional. Return loop members or just detect presence of loop? Only set
+            * to true if you already know the given $start is part of a loop (otherwise
+            * the returned array might include branches). Default false.
+            * @return mixed Scalar ID of some arbitrary member of the loop, or array of IDs of all members of loop if
+            * $_return_loop
+            */
+            function wp_find_hierarchy_loop_tortoise_hare($callback, $start, $override = array(), $callback_args =
+            array(), $_return_loop = false)
+            {
+            $tortoise = $start;
+            $hare = $start;
+            $evanescent_hare = $start;
+            $return = array();
 
-		// Make sure we catch CR-only line endings.
-		$file_data = str_replace("\r", "\n", $file_data);
+            // Set evanescent_hare to one past hare.
+            // Increment hare two steps.
+            while (
+            $tortoise
+            &&
+            ($evanescent_hare = isset($override[$hare]) ? $override[$hare] : call_user_func_array($callback,
+            array_merge(array($hare), $callback_args)))
+            &&
+            ($hare = isset($override[$evanescent_hare]) ? $override[$evanescent_hare] : call_user_func_array($callback,
+            array_merge(array($evanescent_hare), $callback_args)))
+            ) {
+            if ($_return_loop) {
+            $return[$tortoise] = true;
+            $return[$evanescent_hare] = true;
+            $return[$hare] = true;
+            }
 
-		/**
-		 * Filters extra file headers by context.
-		 *
-		 * The dynamic portion of the hook name, `$context`, refers to
-		 * the context where extra headers might be loaded.
-		 *
-		 * @since 2.9.0
-		 *
-		 * @param array $extra_context_headers Empty array by default.
-		 */
-		$extra_headers = $context ? apply_filters("extra_{$context}_headers", array()) : array();
-		if ($extra_headers) {
-			$extra_headers = array_combine($extra_headers, $extra_headers); // Keys equal values.
-			$all_headers   = array_merge($extra_headers, (array) $default_headers);
-		} else {
-			$all_headers = $default_headers;
-		}
+            // Tortoise got lapped - must be a loop.
+            if ($tortoise == $evanescent_hare || $tortoise == $hare) {
+            return $_return_loop ? $return : $tortoise;
+            }
 
-		foreach ($all_headers as $field => $regex) {
-			if (preg_match('/^(?:[ \t]*<\?php)?[ \t\/*#@]*' . preg_quote($regex, '/') . ':(.*)$/mi', $file_data, $match) && $match[1]) {
-				$all_headers[$field] = _cleanup_header_comment($match[1]);
-			} else {
-				$all_headers[$field] = '';
-			}
-		}
+            // Increment tortoise by one step.
+            $tortoise = isset($override[$tortoise]) ? $override[$tortoise] : call_user_func_array($callback,
+            array_merge(array($tortoise), $callback_args));
+            }
 
-		return $all_headers;
-	}
+            return false;
+            }
 
-	/**
-	 * Returns true.
-	 *
-	 * Useful for returning true to filters easily.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @see __return_false()
-	 *
-	 * @return true True.
-	 */
-	function __return_true()
-	{ // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
-		return true;
-	}
+            /**
+            * Send a HTTP header to limit rendering of pages to same origin iframes.
+            *
+            * @since 3.1.3
+            *
+            * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+            */
+            function send_frame_options_header()
+            {
+            header('X-Frame-Options: SAMEORIGIN');
+            }
 
-	/**
-	 * Returns false.
-	 *
-	 * Useful for returning false to filters easily.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @see __return_true()
-	 *
-	 * @return false False.
-	 */
-	function __return_false()
-	{ // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
-		return false;
-	}
+            /**
+            * Retrieve a list of protocols to allow in HTML attributes.
+            *
+            * @since 3.3.0
+            * @since 4.3.0 Added 'webcal' to the protocols array.
+            * @since 4.7.0 Added 'urn' to the protocols array.
+            * @since 5.3.0 Added 'sms' to the protocols array.
+            * @since 5.6.0 Added 'irc6' and 'ircs' to the protocols array.
+            *
+            * @see wp_kses()
+            * @see esc_url()
+            *
+            * @return string[] Array of allowed protocols. Defaults to an array containing 'http', 'https',
+            * 'ftp', 'ftps', 'mailto', 'news', 'irc', 'irc6', 'ircs', 'gopher', 'nntp', 'feed',
+            * 'telnet', 'mms', 'rtsp', 'sms', 'svn', 'tel', 'fax', 'xmpp', 'webcal', and 'urn'.
+            * This covers all common link protocols, except for 'javascript' which should not
+            * be allowed for untrusted users.
+            */
+            function wp_allowed_protocols()
+            {
+            static $protocols = array();
 
-	/**
-	 * Returns 0.
-	 *
-	 * Useful for returning 0 to filters easily.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @return int 0.
-	 */
-	function __return_zero()
-	{ // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
-		return 0;
-	}
+            if (empty($protocols)) {
+            $protocols = array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'irc6', 'ircs', 'gopher',
+            'nntp', 'feed', 'telnet', 'mms', 'rtsp', 'sms', 'svn', 'tel', 'fax', 'xmpp', 'webcal', 'urn');
+            }
 
-	/**
-	 * Returns an empty array.
-	 *
-	 * Useful for returning an empty array to filters easily.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @return array Empty array.
-	 */
-	function __return_empty_array()
-	{ // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
-		return array();
-	}
+            if (!did_action('wp_loaded')) {
+            /**
+            * Filters the list of protocols allowed in HTML attributes.
+            *
+            * @since 3.0.0
+            *
+            * @param string[] $protocols Array of allowed protocols e.g. 'http', 'ftp', 'tel', and more.
+            */
+            $protocols = array_unique((array) apply_filters('kses_allowed_protocols', $protocols));
+            }
 
-	/**
-	 * Returns null.
-	 *
-	 * Useful for returning null to filters easily.
-	 *
-	 * @since 3.4.0
-	 *
-	 * @return null Null value.
-	 */
-	function __return_null()
-	{ // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
-		return null;
-	}
+            return $protocols;
+            }
 
-	/**
-	 * Returns an empty string.
-	 *
-	 * Useful for returning an empty string to filters easily.
-	 *
-	 * @since 3.7.0
-	 *
-	 * @see __return_null()
-	 *
-	 * @return string Empty string.
-	 */
-	function __return_empty_string()
-	{ // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
-		return '';
-	}
+            /**
+            * Returns a comma-separated string or array of functions that have been called to get
+            * to the current point in code.
+            *
+            * @since 3.4.0
+            *
+            * @see https://core.trac.wordpress.org/ticket/19589
+            *
+            * @param string $ignore_class Optional. A class to ignore all function calls within - useful
+            * when you want to just give info about the callee. Default null.
+            * @param int $skip_frames Optional. A number of stack frames to skip - useful for unwinding
+            * back to the source of the issue. Default 0.
+            * @param bool $pretty Optional. Whether you want a comma separated string instead of
+            * the raw array returned. Default true.
+            * @return string|array Either a string containing a reversed comma separated trace or an array
+            * of individual calls.
+            */
+            function wp_debug_backtrace_summary($ignore_class = null, $skip_frames = 0, $pretty = true)
+            {
+            static $truncate_paths;
 
-	/**
-	 * Send a HTTP header to disable content type sniffing in browsers which support it.
-	 *
-	 * @since 3.0.0
-	 *
-	 * @see https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx
-	 * @see https://src.chromium.org/viewvc/chrome?view=rev&revision=6985
-	 */
-	function send_nosniff_header()
-	{
-		header('X-Content-Type-Options: nosniff');
-	}
+            $trace = debug_backtrace(false);
+            $caller = array();
+            $check_class = !is_null($ignore_class);
+            $skip_frames++; // Skip this function.
 
-	/**
-	 * Return a MySQL expression for selecting the week number based on the start_of_week option.
-	 *
-	 * @ignore
-	 * @since 3.0.0
-	 *
-	 * @param string $column Database column.
-	 * @return string SQL clause.
-	 */
-	function _wp_mysql_week($column)
-	{
-		$start_of_week = (int) get_option('start_of_week');
-		switch ($start_of_week) {
-			case 1:
-				return "WEEK( $column, 1 )";
-			case 2:
-			case 3:
-			case 4:
-			case 5:
-			case 6:
-				return "WEEK( DATE_SUB( $column, INTERVAL $start_of_week DAY ), 0 )";
-			case 0:
-			default:
-				return "WEEK( $column, 0 )";
-		}
-	}
+            if (!isset($truncate_paths)) {
+            $truncate_paths = array(
+            wp_normalize_path(WP_CONTENT_DIR),
+            wp_normalize_path(ABSPATH),
+            );
+            }
 
-	/**
-	 * Find hierarchy loops using a callback function that maps object IDs to parent IDs.
-	 *
-	 * @since 3.1.0
-	 * @access private
-	 *
-	 * @param callable $callback      Function that accepts ( ID, $callback_args ) and outputs parent_ID.
-	 * @param int      $start         The ID to start the loop check at.
-	 * @param int      $start_parent  The parent_ID of $start to use instead of calling $callback( $start ).
-	 *                                Use null to always use $callback
-	 * @param array    $callback_args Optional. Additional arguments to send to $callback.
-	 * @return array IDs of all members of loop.
-	 */
-	function wp_find_hierarchy_loop($callback, $start, $start_parent, $callback_args = array())
-	{
-		$override = is_null($start_parent) ? array() : array($start => $start_parent);
+            foreach ($trace as $call) {
+            if ($skip_frames > 0) {
+            $skip_frames--;
+            } elseif (isset($call['class'])) {
+            if ($check_class && $ignore_class == $call['class']) {
+            continue; // Filter out calls.
+            }
 
-		$arbitrary_loop_member = wp_find_hierarchy_loop_tortoise_hare($callback, $start, $override, $callback_args);
-		if (!$arbitrary_loop_member) {
-			return array();
-		}
+            $caller[] = "{$call['class']}{$call['type']}{$call['function']}";
+            } else {
+            if (in_array($call['function'], array('do_action', 'apply_filters', 'do_action_ref_array',
+            'apply_filters_ref_array'), true)) {
+            $caller[] = "{$call['function']}('{$call['args'][0]}')";
+            } elseif (in_array($call['function'], array('include', 'include_once', 'require', 'require_once'), true)) {
+            $filename = isset($call['args'][0]) ? $call['args'][0] : '';
+            $caller[] = $call['function'] . "('" . str_replace($truncate_paths, '', wp_normalize_path($filename)) .
+            "')";
+            } else {
+            $caller[] = $call['function'];
+            }
+            }
+            }
+            if ($pretty) {
+            return implode(', ', array_reverse($caller));
+            } else {
+            return $caller;
+            }
+            }
 
-		return wp_find_hierarchy_loop_tortoise_hare($callback, $arbitrary_loop_member, $override, $callback_args, true);
-	}
+            /**
+            * Retrieve IDs that are not already present in the cache.
+            *
+            * @since 3.4.0
+            * @access private
+            *
+            * @param int[] $object_ids Array of IDs.
+            * @param string $cache_key The cache bucket to check against.
+            * @return int[] Array of IDs not present in the cache.
+            */
+            function _get_non_cached_ids($object_ids, $cache_key)
+            {
+            $non_cached_ids = array();
+            $cache_values = wp_cache_get_multiple($object_ids, $cache_key);
 
-	/**
-	 * Use the "The Tortoise and the Hare" algorithm to detect loops.
-	 *
-	 * For every step of the algorithm, the hare takes two steps and the tortoise one.
-	 * If the hare ever laps the tortoise, there must be a loop.
-	 *
-	 * @since 3.1.0
-	 * @access private
-	 *
-	 * @param callable $callback      Function that accepts ( ID, callback_arg, ... ) and outputs parent_ID.
-	 * @param int      $start         The ID to start the loop check at.
-	 * @param array    $override      Optional. An array of ( ID => parent_ID, ... ) to use instead of $callback.
-	 *                                Default empty array.
-	 * @param array    $callback_args Optional. Additional arguments to send to $callback. Default empty array.
-	 * @param bool     $_return_loop  Optional. Return loop members or just detect presence of loop? Only set
-	 *                                to true if you already know the given $start is part of a loop (otherwise
-	 *                                the returned array might include branches). Default false.
-	 * @return mixed Scalar ID of some arbitrary member of the loop, or array of IDs of all members of loop if
-	 *               $_return_loop
-	 */
-	function wp_find_hierarchy_loop_tortoise_hare($callback, $start, $override = array(), $callback_args = array(), $_return_loop = false)
-	{
-		$tortoise        = $start;
-		$hare            = $start;
-		$evanescent_hare = $start;
-		$return          = array();
+            foreach ($cache_values as $id => $value) {
+            if (!$value) {
+            $non_cached_ids[] = (int) $id;
+            }
+            }
 
-		// Set evanescent_hare to one past hare.
-		// Increment hare two steps.
-		while (
-			$tortoise
-			&&
-			($evanescent_hare = isset($override[$hare]) ? $override[$hare] : call_user_func_array($callback, array_merge(array($hare), $callback_args)))
-			&&
-			($hare = isset($override[$evanescent_hare]) ? $override[$evanescent_hare] : call_user_func_array($callback, array_merge(array($evanescent_hare), $callback_args)))
-		) {
-			if ($_return_loop) {
-				$return[$tortoise]        = true;
-				$return[$evanescent_hare] = true;
-				$return[$hare]            = true;
-			}
+            return $non_cached_ids;
+            }
 
-			// Tortoise got lapped - must be a loop.
-			if ($tortoise == $evanescent_hare || $tortoise == $hare) {
-				return $_return_loop ? $return : $tortoise;
-			}
+            /**
+            * Test if the current device has the capability to upload files.
+            *
+            * @since 3.4.0
+            * @access private
+            *
+            * @return bool Whether the device is able to upload files.
+            */
+            function _device_can_upload()
+            {
+            if (!wp_is_mobile()) {
+            return true;
+            }
 
-			// Increment tortoise by one step.
-			$tortoise = isset($override[$tortoise]) ? $override[$tortoise] : call_user_func_array($callback, array_merge(array($tortoise), $callback_args));
-		}
+            $ua = $_SERVER['HTTP_USER_AGENT'];
 
-		return false;
-	}
+            if (
+            strpos($ua, 'iPhone') !== false
+            || strpos($ua, 'iPad') !== false
+            || strpos($ua, 'iPod') !== false
+            ) {
+            return preg_match('#OS ([\d_]+) like Mac OS X#', $ua, $version) && version_compare($version[1], '6', '>=');
+            }
 
-	/**
-	 * Send a HTTP header to limit rendering of pages to same origin iframes.
-	 *
-	 * @since 3.1.3
-	 *
-	 * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
-	 */
-	function send_frame_options_header()
-	{
-		header('X-Frame-Options: SAMEORIGIN');
-	}
+            return true;
+            }
 
-	/**
-	 * Retrieve a list of protocols to allow in HTML attributes.
-	 *
-	 * @since 3.3.0
-	 * @since 4.3.0 Added 'webcal' to the protocols array.
-	 * @since 4.7.0 Added 'urn' to the protocols array.
-	 * @since 5.3.0 Added 'sms' to the protocols array.
-	 * @since 5.6.0 Added 'irc6' and 'ircs' to the protocols array.
-	 *
-	 * @see wp_kses()
-	 * @see esc_url()
-	 *
-	 * @return string[] Array of allowed protocols. Defaults to an array containing 'http', 'https',
-	 *                  'ftp', 'ftps', 'mailto', 'news', 'irc', 'irc6', 'ircs', 'gopher', 'nntp', 'feed',
-	 *                  'telnet', 'mms', 'rtsp', 'sms', 'svn', 'tel', 'fax', 'xmpp', 'webcal', and 'urn'.
-	 *                  This covers all common link protocols, except for 'javascript' which should not
-	 *                  be allowed for untrusted users.
-	 */
-	function wp_allowed_protocols()
-	{
-		static $protocols = array();
+            /**
+            * Test if a given path is a stream URL
+            *
+            * @since 3.5.0
+            *
+            * @param string $path The resource path or URL.
+            * @return bool True if the path is a stream URL.
+            */
+            function wp_is_stream($path)
+            {
+            $scheme_separator = strpos($path, '://');
 
-		if (empty($protocols)) {
-			$protocols = array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'irc6', 'ircs', 'gopher', 'nntp', 'feed', 'telnet', 'mms', 'rtsp', 'sms', 'svn', 'tel', 'fax', 'xmpp', 'webcal', 'urn');
-		}
+            if (false === $scheme_separator) {
+            // $path isn't a stream.
+            return false;
+            }
 
-		if (!did_action('wp_loaded')) {
-			/**
-			 * Filters the list of protocols allowed in HTML attributes.
-			 *
-			 * @since 3.0.0
-			 *
-			 * @param string[] $protocols Array of allowed protocols e.g. 'http', 'ftp', 'tel', and more.
-			 */
-			$protocols = array_unique((array) apply_filters('kses_allowed_protocols', $protocols));
-		}
+            $stream = substr($path, 0, $scheme_separator);
 
-		return $protocols;
-	}
+            return in_array($stream, stream_get_wrappers(), true);
+            }
 
-	/**
-	 * Returns a comma-separated string or array of functions that have been called to get
-	 * to the current point in code.
-	 *
-	 * @since 3.4.0
-	 *
-	 * @see https://core.trac.wordpress.org/ticket/19589
-	 *
-	 * @param string $ignore_class Optional. A class to ignore all function calls within - useful
-	 *                             when you want to just give info about the callee. Default null.
-	 * @param int    $skip_frames  Optional. A number of stack frames to skip - useful for unwinding
-	 *                             back to the source of the issue. Default 0.
-	 * @param bool   $pretty       Optional. Whether you want a comma separated string instead of
-	 *                             the raw array returned. Default true.
-	 * @return string|array Either a string containing a reversed comma separated trace or an array
-	 *                      of individual calls.
-	 */
-	function wp_debug_backtrace_summary($ignore_class = null, $skip_frames = 0, $pretty = true)
-	{
-		static $truncate_paths;
+            /**
+            * Test if the supplied date is valid for the Gregorian calendar.
+            *
+            * @since 3.5.0
+            *
+            * @link https://www.php.net/manual/en/function.checkdate.php
+            *
+            * @param int $month Month number.
+            * @param int $day Day number.
+            * @param int $year Year number.
+            * @param string $source_date The date to filter.
+            * @return bool True if valid date, false if not valid date.
+            */
+            function wp_checkdate($month, $day, $year, $source_date)
+            {
+            /**
+            * Filters whether the given date is valid for the Gregorian calendar.
+            *
+            * @since 3.5.0
+            *
+            * @param bool $checkdate Whether the given date is valid.
+            * @param string $source_date Date to check.
+            */
+            return apply_filters('wp_checkdate', checkdate($month, $day, $year), $source_date);
+            }
 
-		$trace       = debug_backtrace(false);
-		$caller      = array();
-		$check_class = !is_null($ignore_class);
-		$skip_frames++; // Skip this function.
+            /**
+            * Load the auth check for monitoring whether the user is still logged in.
+            *
+            * Can be disabled with remove_action( 'admin_enqueue_scripts', 'wp_auth_check_load' );
+            *
+            * This is disabled for certain screens where a login screen could cause an
+            * inconvenient interruption. A filter called {@see 'wp_auth_check_load'} can be used
+            * for fine-grained control.
+            *
+            * @since 3.6.0
+            */
+            function wp_auth_check_load()
+            {
+            if (!is_admin() && !is_user_logged_in()) {
+            return;
+            }
 
-		if (!isset($truncate_paths)) {
-			$truncate_paths = array(
-				wp_normalize_path(WP_CONTENT_DIR),
-				wp_normalize_path(ABSPATH),
-			);
-		}
+            if (defined('IFRAME_REQUEST')) {
+            return;
+            }
 
-		foreach ($trace as $call) {
-			if ($skip_frames > 0) {
-				$skip_frames--;
-			} elseif (isset($call['class'])) {
-				if ($check_class && $ignore_class == $call['class']) {
-					continue; // Filter out calls.
-				}
+            $screen = get_current_screen();
+            $hidden = array('update', 'update-network', 'update-core', 'update-core-network', 'upgrade',
+            'upgrade-network', 'network');
+            $show = !in_array($screen->id, $hidden, true);
 
-				$caller[] = "{$call['class']}{$call['type']}{$call['function']}";
-			} else {
-				if (in_array($call['function'], array('do_action', 'apply_filters', 'do_action_ref_array', 'apply_filters_ref_array'), true)) {
-					$caller[] = "{$call['function']}('{$call['args'][0]}')";
-				} elseif (in_array($call['function'], array('include', 'include_once', 'require', 'require_once'), true)) {
-					$filename = isset($call['args'][0]) ? $call['args'][0] : '';
-					$caller[] = $call['function'] . "('" . str_replace($truncate_paths, '', wp_normalize_path($filename)) . "')";
-				} else {
-					$caller[] = $call['function'];
-				}
-			}
-		}
-		if ($pretty) {
-			return implode(', ', array_reverse($caller));
-		} else {
-			return $caller;
-		}
-	}
+            /**
+            * Filters whether to load the authentication check.
+            *
+            * Returning a falsey value from the filter will effectively short-circuit
+            * loading the authentication check.
+            *
+            * @since 3.6.0
+            *
+            * @param bool $show Whether to load the authentication check.
+            * @param WP_Screen $screen The current screen object.
+            */
+            if (apply_filters('wp_auth_check_load', $show, $screen)) {
+            wp_enqueue_style('wp-auth-check');
+            wp_enqueue_script('wp-auth-check');
 
-	/**
-	 * Retrieve IDs that are not already present in the cache.
-	 *
-	 * @since 3.4.0
-	 * @access private
-	 *
-	 * @param int[]  $object_ids Array of IDs.
-	 * @param string $cache_key  The cache bucket to check against.
-	 * @return int[] Array of IDs not present in the cache.
-	 */
-	function _get_non_cached_ids($object_ids, $cache_key)
-	{
-		$non_cached_ids = array();
-		$cache_values   = wp_cache_get_multiple($object_ids, $cache_key);
+            add_action('admin_print_footer_scripts', 'wp_auth_check_html', 5);
+            add_action('wp_print_footer_scripts', 'wp_auth_check_html', 5);
+            }
+            }
 
-		foreach ($cache_values as $id => $value) {
-			if (!$value) {
-				$non_cached_ids[] = (int) $id;
-			}
-		}
+            /**
+            * Output the HTML that shows the wp-login dialog when the user is no longer logged in.
+            *
+            * @since 3.6.0
+            */
+            function wp_auth_check_html()
+            {
+            $login_url = wp_login_url();
+            $current_domain = (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'];
+            $same_domain = (strpos($login_url, $current_domain) === 0);
 
-		return $non_cached_ids;
-	}
+            /**
+            * Filters whether the authentication check originated at the same domain.
+            *
+            * @since 3.6.0
+            *
+            * @param bool $same_domain Whether the authentication check originated at the same domain.
+            */
+            $same_domain = apply_filters('wp_auth_check_same_domain', $same_domain);
+            $wrap_class = $same_domain ? 'hidden' : 'hidden fallback';
 
-	/**
-	 * Test if the current device has the capability to upload files.
-	 *
-	 * @since 3.4.0
-	 * @access private
-	 *
-	 * @return bool Whether the device is able to upload files.
-	 */
-	function _device_can_upload()
-	{
-		if (!wp_is_mobile()) {
-			return true;
-		}
-
-		$ua = $_SERVER['HTTP_USER_AGENT'];
-
-		if (
-			strpos($ua, 'iPhone') !== false
-			|| strpos($ua, 'iPad') !== false
-			|| strpos($ua, 'iPod') !== false
-		) {
-			return preg_match('#OS ([\d_]+) like Mac OS X#', $ua, $version) && version_compare($version[1], '6', '>=');
-		}
-
-		return true;
-	}
-
-	/**
-	 * Test if a given path is a stream URL
-	 *
-	 * @since 3.5.0
-	 *
-	 * @param string $path The resource path or URL.
-	 * @return bool True if the path is a stream URL.
-	 */
-	function wp_is_stream($path)
-	{
-		$scheme_separator = strpos($path, '://');
-
-		if (false === $scheme_separator) {
-			// $path isn't a stream.
-			return false;
-		}
-
-		$stream = substr($path, 0, $scheme_separator);
-
-		return in_array($stream, stream_get_wrappers(), true);
-	}
-
-	/**
-	 * Test if the supplied date is valid for the Gregorian calendar.
-	 *
-	 * @since 3.5.0
-	 *
-	 * @link https://www.php.net/manual/en/function.checkdate.php
-	 *
-	 * @param int    $month       Month number.
-	 * @param int    $day         Day number.
-	 * @param int    $year        Year number.
-	 * @param string $source_date The date to filter.
-	 * @return bool True if valid date, false if not valid date.
-	 */
-	function wp_checkdate($month, $day, $year, $source_date)
-	{
-		/**
-		 * Filters whether the given date is valid for the Gregorian calendar.
-		 *
-		 * @since 3.5.0
-		 *
-		 * @param bool   $checkdate   Whether the given date is valid.
-		 * @param string $source_date Date to check.
-		 */
-		return apply_filters('wp_checkdate', checkdate($month, $day, $year), $source_date);
-	}
-
-	/**
-	 * Load the auth check for monitoring whether the user is still logged in.
-	 *
-	 * Can be disabled with remove_action( 'admin_enqueue_scripts', 'wp_auth_check_load' );
-	 *
-	 * This is disabled for certain screens where a login screen could cause an
-	 * inconvenient interruption. A filter called {@see 'wp_auth_check_load'} can be used
-	 * for fine-grained control.
-	 *
-	 * @since 3.6.0
-	 */
-	function wp_auth_check_load()
-	{
-		if (!is_admin() && !is_user_logged_in()) {
-			return;
-		}
-
-		if (defined('IFRAME_REQUEST')) {
-			return;
-		}
-
-		$screen = get_current_screen();
-		$hidden = array('update', 'update-network', 'update-core', 'update-core-network', 'upgrade', 'upgrade-network', 'network');
-		$show   = !in_array($screen->id, $hidden, true);
-
-		/**
-		 * Filters whether to load the authentication check.
-		 *
-		 * Returning a falsey value from the filter will effectively short-circuit
-		 * loading the authentication check.
-		 *
-		 * @since 3.6.0
-		 *
-		 * @param bool      $show   Whether to load the authentication check.
-		 * @param WP_Screen $screen The current screen object.
-		 */
-		if (apply_filters('wp_auth_check_load', $show, $screen)) {
-			wp_enqueue_style('wp-auth-check');
-			wp_enqueue_script('wp-auth-check');
-
-			add_action('admin_print_footer_scripts', 'wp_auth_check_html', 5);
-			add_action('wp_print_footer_scripts', 'wp_auth_check_html', 5);
-		}
-	}
-
-	/**
-	 * Output the HTML that shows the wp-login dialog when the user is no longer logged in.
-	 *
-	 * @since 3.6.0
-	 */
-	function wp_auth_check_html()
-	{
-		$login_url      = wp_login_url();
-		$current_domain = (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'];
-		$same_domain    = (strpos($login_url, $current_domain) === 0);
-
-		/**
-		 * Filters whether the authentication check originated at the same domain.
-		 *
-		 * @since 3.6.0
-		 *
-		 * @param bool $same_domain Whether the authentication check originated at the same domain.
-		 */
-		$same_domain = apply_filters('wp_auth_check_same_domain', $same_domain);
-		$wrap_class  = $same_domain ? 'hidden' : 'hidden fallback';
-
-		?>
-		<div id="wp-auth-check-wrap" class="<?php echo $wrap_class; ?>">
-			<div id="wp-auth-check-bg"></div>
-			<div id="wp-auth-check">
-				<button type="button" class="wp-auth-check-close button-link"><span class="screen-reader-text"><?php _e('Close dialog'); ?></span></button>
-				<?php
+            ?>
+            <div id="wp-auth-check-wrap" class="<?php echo $wrap_class; ?>">
+                <div id="wp-auth-check-bg"></div>
+                <div id="wp-auth-check">
+                    <button type="button" class="wp-auth-check-close button-link"><span
+                            class="screen-reader-text"><?php _e('Close dialog'); ?></span></button>
+                    <?php
 
 				if ($same_domain) {
 					$login_src = add_query_arg(
@@ -7345,19 +7211,21 @@ EOD;
 						$login_url
 					);
 				?>
-					<div id="wp-auth-check-form" class="loading" data-src="<?php echo esc_url($login_src); ?>"></div>
-				<?php
+                    <div id="wp-auth-check-form" class="loading" data-src="<?php echo esc_url($login_src); ?>"></div>
+                    <?php
 				}
 
 				?>
-				<div class="wp-auth-fallback">
-					<p><b class="wp-auth-fallback-expired" tabindex="0"><?php _e('Session expired'); ?></b></p>
-					<p><a href="<?php echo esc_url($login_url); ?>" target="_blank"><?php _e('Please log in again.'); ?></a>
-						<?php _e('The login page will open in a new tab. After logging in you can close it and return to this page.'); ?></p>
-				</div>
-			</div>
-		</div>
-	<?php
+                    <div class="wp-auth-fallback">
+                        <p><b class="wp-auth-fallback-expired" tabindex="0"><?php _e('Session expired'); ?></b></p>
+                        <p><a href="<?php echo esc_url($login_url); ?>"
+                                target="_blank"><?php _e('Please log in again.'); ?></a>
+                            <?php _e('The login page will open in a new tab. After logging in you can close it and return to this page.'); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <?php
 	}
 
 	/**
@@ -7599,22 +7467,22 @@ EOD;
 		$name = 'wp-preview-' . (int) $post->ID;
 
 	?>
-		<script>
-			(function() {
-				var query = document.location.search;
+            <script>
+            (function() {
+                var query = document.location.search;
 
-				if (query && query.indexOf('preview=true') !== -1) {
-					window.name = '<?php echo $name; ?>';
-				}
+                if (query && query.indexOf('preview=true') !== -1) {
+                    window.name = '<?php echo $name; ?>';
+                }
 
-				if (window.addEventListener) {
-					window.addEventListener('unload', function() {
-						window.name = '';
-					}, false);
-				}
-			}());
-		</script>
-	<?php
+                if (window.addEventListener) {
+                    window.addEventListener('unload', function() {
+                        window.name = '';
+                    }, false);
+                }
+            }());
+            </script>
+            <?php
 	}
 
 	/**

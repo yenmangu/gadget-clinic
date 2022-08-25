@@ -4,17 +4,23 @@
 //     $id = $_GET['id'];
 // } else {
 //     $id = "";
-// };
-
-$id_var = (get_query_var('id')) ? get_query_var('id') : false;
-if ($id_var) {
-    $id_var = $id;
-};
+// }
 
 global $wpdb;
 
-$result = $wpdb->get_results("SELECT * all_device_repairs WHERE id = $id");
-$image_result = $wpdb->get_results("SELECT * newdevices WHERE deviceId = $id");
+$id_var = (get_query_var('id')) ? get_query_var('id') : false;
+if ($id_var) {
+    $result = $wpdb->get_results("SELECT * FROM all_device_repairs WHERE id = '$id_var'");
+    $image_result = $wpdb->get_results("SELECT * FROM newdevices WHERE id = $id_var");
+};
+
+
+// $result = $wpdb->get_results("SELECT * FROM all_device_repairs WHERE id = '$id'");
+// $image_result = $wpdb->get_results("SELECT * FROM newdevices WHERE id = $id");
+
+echo $result;
+echo "<br>";
+echo $image_result;
 
 echo "<style>";
 echo "body.repair-body{max-width: 100%; display:flex; flex-direction:column}";
