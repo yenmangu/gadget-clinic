@@ -8704,8 +8704,8 @@ All at ###SITENAME###
 
 	function load_js_assets()
 	{
-		if (is_page(1870)) {
-			wp_enqueue_script('multi-stage-form', '/gadget-js/multi-stage-form.js', array('jquery'), '', false);
+		if (is_page(ID)) {
+			wp_enqueue_script('my-js', 'PATH TO JS FILE', array('jquery'), '', false);
 		}
 	}
 
