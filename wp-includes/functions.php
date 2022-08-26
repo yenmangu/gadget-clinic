@@ -8710,4 +8710,13 @@ All at ###SITENAME###
 	}
 
 	add_action('wp_enqueue_scripts', 'load_js_assets');
+
+	function load_css_assets()
+	{
+		if (is_page(1870)) {
+			wp_enqueue_script('form-css', '/custom-gadget/css/styles.css', array(''), '', false);
+		}
+	}
+
+	add_action('wp_enqueue_scripts', 'load_css_assets');
 	?>

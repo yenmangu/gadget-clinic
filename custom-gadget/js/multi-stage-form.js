@@ -1,6 +1,6 @@
 // debug
 
-alert("there is a script running here");
+// alert("there is a script running here");
 
 // end debug
 var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -15,9 +15,11 @@ function showTab(n) {
 		document.getElementById("prevBtn").style.display = "none";
 	} else {
 		document.getElementById("prevBtn").style.display = "inline";
+		document.getElementById("repairH5").style.display = "none";
 	}
 	if (n == x.length - 1) {
-		document.getElementById("nextBtn").innerHTML = "Submit";
+		document.getElementById("nextBtn").innerHTML = "Repair Your Device";
+		document.getElementById("nextBtn").style.backgroundColor = "#E12929";
 	} else {
 		document.getElementById("nextBtn").innerHTML = "Next";
 	}
