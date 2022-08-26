@@ -75,14 +75,12 @@ echo "<input type='checkbox' id='battery'>";
 echo "<label class='repair-type' for 'battery'>Cost {$battery}</label><br>";
 echo '</div>';
 echo "</div>"; // closing div tab
-
+// contact tab
 echo '<div class="tab">Contact Info:';
-echo "<p><input placeholder='First name...' oninput='this.className = '''></p>";
-echo "<p><input placeholder='Last name...' oninput='this.className = '''></p>";
-echo "<p><input placeholder='E-mail...'' oninput='this.className = '''></p>"; // change the quotes
-echo "<p><input placeholder='Phone...' oninput='this.className = '''></p>";
-// more contact info
-echo "<p><input placeholder='Phone...' oninput='this.className = '''></p>"; // change this
+echo "<p><input placeholder='First name...' oninput='this.className = '' '></p>";
+echo "<p><input placeholder='Last name...' oninput='this.className = '' '></p>";
+echo "<p><input placeholder='E-mail...'' oninput='this.className = '' '></p>"; // change the quotes
+echo "<p><input placeholder='Phone...' oninput='this.className = '' '></p>";
 echo "</div>"; // closing div tab
 
 echo "<input type='submit' class='submit-button' id='submit-repair' value='Repair My Device'> ";
@@ -102,5 +100,5 @@ echo "<span class='step'></span>";
 echo "<span class='step'></span>";
 echo "</div>";
 echo "</form>";
-
+echo "<script src='/custom-gadget/js/multi-stage-form.js'></script>";
 echo "</body>";
