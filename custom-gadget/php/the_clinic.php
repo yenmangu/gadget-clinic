@@ -30,25 +30,83 @@ $image = $new_image_array["image"];
 echo "<head>";
 echo "<link rel='stylesheet' href='/custom-gadget/css/styles.css'>";
 echo "</head>";
-echo "<style>";
-echo "body.repair-body {max-width: 100%; display:flex; flex-direction:column}";
-echo "div.device-name {padding-bottom: 40px}";
-echo "h3.device-name {width: 100%; text-align: center; padding-bottom: 20px}";
-echo "div.image-wrapper {max-width: 300px; padding: 20px}";
-echo ".screen-option-wrapper {flex-direction: column; justify-content: space-evenly; padding: 40px 0px 40px 0px}";
-echo "h6.repair-h6 {padding-top: 10px; padding-bottom: 10px}";
-echo "div.screen-option {display:flex; flex-direction: row; align-items: center}";
-echo "input[type=radio]+label {margin-right: 2em; line-height: 1em}";
-echo "label.repair-type {width: 100%}";
-echo "div.repair-option {display: flex; flex-direction: row; align-items: center}";
-echo "input.screen-type {margin-right: 10px}";
-echo "input.repair-checkbox {margin-right: 0px !important}";
-// echo "input.submit-button {margin-top: 20px; margin-bottom: 40px; background-color: #E12929; color: white; max-width: 200px}";
-echo "div.form-controls {padding-top:20px}";
-echo "button.control-buttons-previous {margin-top:10px}";
-echo "button.control-buttons-next {margin-top:10px; color: white}";
+// echo "<style>";
+// echo "body.repair-body {max-width: 100%; display:flex; flex-direction:column}";
+// echo "div.device-name {padding-bottom: 40px}";
+// echo "h3.device-name {width: 100%; text-align: center; padding-bottom: 20px}";
+// echo "div.image-wrapper {max-width: 300px; padding: 20px}";
+// echo ".screen-option-wrapper {flex-direction: column; justify-content: space-evenly; padding: 40px 0px 40px 0px}";
+// echo "h6.repair-h6 {padding-top: 10px; padding-bottom: 10px}";
+// echo "div.screen-option {
+// 				display:flex; 
+// 				flex-direction: row; 
+// 				align-items: center;
+// 				gap: 165px;
+// 			}";
 
-echo "</style>";
+// echo "input[type=radio]+label {margin-right: 2em; line-height: 1em}";
+// echo "label.repair-type {width: 300px; height: 50px; position: relative; background: #c70039}";
+// echo "label.repair-type::before {
+// 				content: ''; 
+// 				position: absolute; 
+// 				right: -25px; 
+// 				bottom: 0; width: 0; 
+// 				height: 0; 
+// 				border-left: 25px solid #c70039; 
+// 				border-top: 25px solid transparent;
+// 				border-bottom: 25px solid transparent; 
+// 			}";
+// echo "label.repair-type::after {
+// 				content: '';
+// 				position: absolute; 
+// 				left: 0; 
+// 				bottom: 0; 
+// 				width: 0; 
+// 				height: 0; 
+// 				border-left: 
+// 				25px solid white;
+// 				border-top: 25px solid transparent; 
+// 				border-bottom: 25px solid transparent; 
+// 			}";
+// echo "span.price-span {
+// 				position: relative; 
+// 				top: 14px; 
+// 				left: 98px; 
+// 				color: white;
+// 			}";
+// echo "span.cost-span {
+// 				position: relative; 
+// 				top: 14px; 
+// 				left: 72px; 
+// 				color: white;
+// 			}";
+
+// echo "div.repair-option {
+// 				display: flex; 
+// 				flex-direction: row; 
+// 				align-items: center;
+// 				gap: 165px;
+// 			}";
+// echo "input.screen-type {margin-right: 10px}";
+// echo "input.repair-checkbox {margin-right: 0px !important}";
+// // echo "input.submit-button {margin-top: 20px; margin-bottom: 40px; background-color: #E12929; color: white; max-width: 200px}";
+// echo "div.form-controls {padding-top:20px}";
+// echo "button.control-buttons-previous {margin-top:10px}";
+// echo "button.control-buttons-next {margin-top:10px; color: white}";
+// echo "
+// 			input#back-glass,
+// 			input#battery {
+// 				transition: box-shadow .3s;
+// 				background: light-grey;
+// 			}
+
+// 			input#back-glass:checked,
+// 			input#battery:checked {
+// 				box-shadow: inset 0 0 0 20px #c70039;
+// 			}
+// 		";
+
+// echo "</style>";
 
 echo "<body class='repair-body'>";
 
@@ -66,36 +124,36 @@ echo "<div class='screen-option-wrapper'>";
 echo "<h6 class='repair-h6'>Standard Screen Replacement</h6>";
 echo "<div class ='screen-option'>";
 echo "<input class='screen-type' type='radio' name='screen-type' id='screen-standard'>";
-echo "<label class='repair-type' for 'screen-standard'>Cost {$screen_standard}</label>";
+echo "<label class='repair-type' for 'screen-standard'><span class = 'cost-span'> Cost </span> <span class= 'price-span'> {$screen_standard}</span></label>";
 echo "</div>";
 echo "<h6 class='repair-h6'>Premium Screen Replacement</h6>";
 echo "<div class ='screen-option'>";
 echo "<input class='screen-type' type='radio' name='screen-type' id='screen-premium'>";
-echo "<label class='repair-type' for 'screen-premium'>Cost {$screen_premium}</label>";
+echo "<label class='repair-type' for 'screen-premium'><span class = 'cost-span'> Cost </span> <span class= 'price-span'> {$screen_premium}</span></label>";
 echo "</div>";
 echo "<h6 class='repair-h6'>Apple Manufactured Screen Replacement</h6>";
 echo "<div class ='screen-option'>";
 echo "<input class='screen-type' type='radio' name='screen-type' id='screen-original'>";
-echo "<label class='repair-type' for 'screen-original'>Cost {$screen_original}</label>";
+echo "<label class='repair-type' for 'screen-original'><span class = 'cost-span'> Cost </span> <span class= 'price-span'> {$screen_original}</span></label>";
 echo "</div>";
 echo "</div>";
 echo "<h6 class='repair-h6'>Back Glass Replacement</h6>";
 echo "<div class='repair-option'>";
 echo "<input class='repair-checkbox' type='checkbox' id='back-glass'>";
-echo "<label class='repair-type' for 'back-glass'>Cost {$back_glass}</label>";
+echo "<label class='repair-type' for 'back-glass'><span class = 'cost-span'> Cost </span> <span class= 'price-span'> {$back_glass}</span></label>";
 echo "</div>";
 echo "<h6 class='repair-h6'>Battery Replacement</h6>";
 echo "<div class='repair-option'>";
 echo "<input class='repair-checkbox' type='checkbox' id='battery'>";
-echo "<label class='repair-type' for 'battery'>Cost {$battery}</label><br>";
+echo "<label class='repair-type' for 'battery'><span class = 'cost-span'> Cost </span> <span class= 'price-span'> {$battery}</span></label><br>";
 echo '</div>';
 echo "</div>"; // closing div tab
 // contact tab
 echo '<div class="tab">Contact Info:';
-echo "<p><input placeholder='First name...' oninput='this.className = '' '></p>";
-echo "<p><input placeholder='Last name...' oninput='this.className = '' '></p>";
-echo "<p><input placeholder='E-mail...'' oninput='this.className = '' '></p>"; // change the quotes
-echo "<p><input placeholder='Phone...' oninput='this.className = '' '></p>";
+echo "<p><input id='form-field' placeholder='First name...' oninput='this.className = '' '></p>";
+echo "<p><input id='form-field' placeholder='Last name...' oninput='this.className = '' '></p>";
+echo "<p><input id='form-field' placeholder='E-mail...'' oninput='this.className = '' '></p>"; // change the quotes
+echo "<p><input id='form-field' placeholder='Phone...' oninput='this.className = '' '></p>";
 echo "</div>"; // closing div tab
 
 // back-forward controls
